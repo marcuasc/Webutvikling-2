@@ -6,6 +6,11 @@ import BestBuddies from "./ArtWorks/BestBuddies";
 import Dogs from "./ArtWorks/Dogs";
 import DJ from "./ArtWorks/DJ";
 import CrackDown from "./ArtWorks/CrackDown";
+import Earth from "./ArtWorks/Earth";
+import Football from "./ArtWorks/Football";
+import Heart from "./ArtWorks/Heart";
+import Snake from "./ArtWorks/Snake";
+import Dance from "./ArtWorks/Dance";
 
 class ArtDisplay extends React.Component {
     constructor(props) {
@@ -13,6 +18,11 @@ class ArtDisplay extends React.Component {
         this.state = {
             currentIndex: 0,
             artworks: [
+                <Dance />,
+                <Snake />,
+                <Heart />,
+                <Football />,
+                <Earth />,
                 <CrackDown />,
                 <DJ />,
                 <RadiantBaby />,
