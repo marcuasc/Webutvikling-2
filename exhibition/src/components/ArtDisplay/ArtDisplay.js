@@ -4,13 +4,21 @@ import "./ArtWorks/RadiantBaby";
 import RadiantBaby from "./ArtWorks/RadiantBaby";
 import BestBuddies from "./ArtWorks/BestBuddies";
 import Dogs from "./ArtWorks/Dogs";
+import DJ from "./ArtWorks/DJ";
+import CrackDown from "./ArtWorks/CrackDown";
 
 class ArtDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             currentIndex: 0,
-            artworks: [<RadiantBaby />, <BestBuddies />, <Dogs />],
+            artworks: [
+                <CrackDown />,
+                <DJ />,
+                <RadiantBaby />,
+                <BestBuddies />,
+                <Dogs />,
+            ],
         };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);

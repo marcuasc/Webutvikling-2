@@ -1,9 +1,50 @@
 import React from "react";
+import { SVG } from "@svgdotjs/svg.js";
 
 class Dogs extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            animated: false,
+        };
+        this.animate = this.animate.bind(this);
+    }
+
+    animate() {
+        const leftDogMouth = SVG("#leftDogMouth");
+        const leftBark = SVG("#leftBark");
+        const rightDogMouth = SVG("#rightDogMouth");
+        const rightBark = SVG("#rightBark");
+        leftDogMouth.timeline().finish();
+        rightDogMouth.timeline().finish();
+        leftBark.timeline().finish();
+        rightBark.timeline().finish();
+        if (!this.state.animated) {
+            this.setState({ animated: true });
+            leftDogMouth.animate({ duration: 500 }).rotate(35, 31, 50);
+            rightDogMouth.animate({ duration: 500 }).rotate(-35, 75, 53);
+            leftBark
+                .animate({ duration: 500 })
+                .transform({ scale: 0.8, translateX: -2, translateY: 2 });
+            rightBark
+                .animate({ duration: 500 })
+                .transform({ scale: 0.8, translateX: 2, translateY: 2 });
+        } else {
+            this.setState({ animated: false });
+            leftDogMouth.animate({ duration: 500 }).rotate(-35, 31, 50);
+            rightDogMouth.animate({ duration: 500 }).rotate(35, 75, 53);
+            leftBark
+                .animate({ duration: 500 })
+                .transform({ scale: 1, translateX: 0, translateY: 0 });
+            rightBark
+                .animate({ duration: 500 })
+                .transform({ scale: 1, translateX: 0, translateY: 0 });
+        }
+    }
     render() {
         return (
             <svg
+                onMouseEnter={this.animate}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"
@@ -478,6 +519,7 @@ class Dogs extends React.Component {
                             }}
                         />
                         <path
+                            id="rightDogMouth"
                             d="M75.921,52.579c0,0 -8.032,-11.393 -7.743,-12.416c0.289,-1.023 1.707,-2.976 2.81,-2.91c1.103,0.066 11.523,8.232 11.523,8.232"
                             style={{
                                 fill: "#8dda50",
@@ -486,7 +528,7 @@ class Dogs extends React.Component {
                             }}
                         />
                     </g>
-                    <g id="rightBark">
+                    <g id="leftBark">
                         <path
                             d="M48.003,42.009l3.354,-2.937l-3.354,2.937Z"
                             style={{
@@ -512,7 +554,7 @@ class Dogs extends React.Component {
                             }}
                         />
                     </g>
-                    <g id="leftBark">
+                    <g id="rightBark">
                         <path
                             d="M60.789,45.989l-3.722,-1.145l3.722,1.145Z"
                             style={{
