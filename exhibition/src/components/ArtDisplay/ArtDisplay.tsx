@@ -1,34 +1,20 @@
 import React from "react";
 import "./ArtDisplay.css";
-import "./ArtWorks/RadiantBaby";
 import RadiantBaby from "./ArtWorks/RadiantBaby";
-import BestBuddies from "./ArtWorks/BestBuddies";
-import Dogs from "./ArtWorks/Dogs";
-import DJ from "./ArtWorks/DJ";
-import CrackDown from "./ArtWorks/CrackDown";
-import Earth from "./ArtWorks/Earth";
-import Football from "./ArtWorks/Football";
-import Heart from "./ArtWorks/Heart";
-import Snake from "./ArtWorks/Snake";
-import Dance from "./ArtWorks/Dance";
 
-class ArtDisplay extends React.Component {
-    constructor(props) {
+interface IProps {}
+
+interface IState {
+    currentIndex: number;
+    artworks: [{}];
+}
+
+class ArtDisplay extends React.Component<IProps, IState> {
+    constructor(props: Readonly<IProps>) {
         super(props);
         this.state = {
             currentIndex: 0,
-            artworks: [
-                <Dance />,
-                <Snake />,
-                <Heart />,
-                <Football />,
-                <Earth />,
-                <CrackDown />,
-                <DJ />,
-                <RadiantBaby />,
-                <BestBuddies />,
-                <Dogs />,
-            ],
+            artworks: [<RadiantBaby />],
         };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);

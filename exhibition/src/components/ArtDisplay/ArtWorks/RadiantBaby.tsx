@@ -2,7 +2,7 @@ import React from "react";
 import { SVG } from "@svgdotjs/svg.js";
 
 class RadiantBaby extends React.Component {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             animated: false,
@@ -14,21 +14,19 @@ class RadiantBaby extends React.Component {
         const body = SVG("#body");
         const shine = SVG("#shine");
         body.timeline().finish();
-        body.animate({ duration: 300 })
-            .transform({ rotate: 10 })
-            .animate({ duration: 300 })
-            .transform({ rotate: -10 })
-            .animate({ duration: 300 })
-            .transform({ rotate: 10 })
-            .animate({ duration: 300 })
-            .transform({ rotate: 0 });
-        if (!this.state.animated) {
-            this.setState({ animated: true });
-            shine.animate({ duration: 1200 }).transform({ scale: 1.2 });
-        } else {
-            this.setState({ animated: false });
-            shine.animate({ duration: 1200 }).transform({ scale: 1 });
-        }
+        //     .animate({ duration: 300 })
+        //     .transform({ rotate: -10 })
+        //     .animate({ duration: 300 })
+        //     .transform({ rotate: 10 })
+        //     .animate({ duration: 300 })
+        //     .transform({ rotate: 0 });
+        // if (!this.state.animated) {
+        //     this.setState({ animated: true });
+        //     shine.animate({ duration: 1200 }).transform({ scale: 1.2 });
+        // } else {
+        //     this.setState({ animated: false });
+        //     shine.animate({ duration: 1200 }).transform({ scale: 1 });
+        // }
     }
 
     render() {
@@ -43,7 +41,6 @@ class RadiantBaby extends React.Component {
                     clipRule: "evenodd",
                     strokeLinecap: "round",
                     strokeLinejoin: "round",
-                    strokeMiterlimit: "1.5",
                 }}
             >
                 <g id="layer1">
