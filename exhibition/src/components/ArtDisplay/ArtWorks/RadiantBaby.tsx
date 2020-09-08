@@ -1,38 +1,85 @@
 import React from "react";
-import { SVG } from "@svgdotjs/svg.js";
+import { sequence } from "just-animate";
+import { addPlugin } from "just-animate";
+import { waapiPlugin } from "just-animate/lib/web";
 
 class RadiantBaby extends React.Component {
     constructor(props: Readonly<{}>) {
         super(props);
-        this.state = {
-            animated: false,
-        };
-        this.animate = this.animate.bind(this);
+        addPlugin(waapiPlugin);
     }
 
-    animate() {
-        const body = SVG("#body");
-        const shine = SVG("#shine");
-        body.timeline().finish();
-        //     .animate({ duration: 300 })
-        //     .transform({ rotate: -10 })
-        //     .animate({ duration: 300 })
-        //     .transform({ rotate: 10 })
-        //     .animate({ duration: 300 })
-        //     .transform({ rotate: 0 });
-        // if (!this.state.animated) {
-        //     this.setState({ animated: true });
-        //     shine.animate({ duration: 1200 }).transform({ scale: 1.2 });
-        // } else {
-        //     this.setState({ animated: false });
-        //     shine.animate({ duration: 1200 }).transform({ scale: 1 });
-        // }
+    animateHover() {
+        const bodyAnimation = sequence([
+            {
+                targets: "#body",
+                duration: 0,
+                web: {
+                    transformOrigin: "center center",
+                },
+            },
+            {
+                targets: "#body",
+                duration: 300,
+                web: {
+                    transform: [{ value: "rotate(10deg)" }],
+                },
+            },
+            {
+                targets: "#body",
+                duration: 300,
+                web: {
+                    transform: [{ value: "rotate(-10deg)" }],
+                },
+            },
+            {
+                targets: "#body",
+                duration: 300,
+                web: {
+                    transform: [{ value: "rotate(0deg)" }],
+                },
+            },
+        ]);
+
+        bodyAnimation.play({
+            repeat: 3,
+        });
+
+        const shineAnimation = sequence([
+            {
+                targets: "#shine",
+                duration: 0,
+                web: {
+                    transformOrigin: "center center",
+                },
+            },
+            {
+                targets: "#shine",
+                duration: 450,
+                web: {
+                    transformOrigin: "center center",
+                    transform: [{ value: "scale(1.2, 1.2)" }],
+                },
+            },
+            {
+                targets: "#shine",
+                duration: 450,
+                web: {
+                    transformOrigin: "center center",
+                    transform: [{ value: "scale(1, 1)" }],
+                },
+            },
+        ]);
+
+        shineAnimation.play({
+            repeat: 3,
+        });
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animate}
+                onMouseEnter={this.animateHover}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"
