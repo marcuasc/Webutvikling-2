@@ -20,7 +20,7 @@ class PoetryDisplay extends React.Component<AppProps, AppState> {
     }
 
     componentDidMount(): void {
-        fetch(input[0])
+        fetch(input[1])
             .then((response) => response.json())
             .then(poem => {
                 this.setState({data: poem[0].lines})
