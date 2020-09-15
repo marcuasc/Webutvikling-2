@@ -4,15 +4,21 @@ import ArtDisplay from "./components/ArtDisplay/ArtDisplay";
 import PoetryDisplay from "./components/PoetryDisplay/PoetryDisplay";
 import AudioDisplay from "./components/AudioDisplay/AudioDisplay";
 
-
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <ArtDisplay />
-                <PoetryDisplay />
-                <AudioDisplay />
-            </header>
+            <div id="Main">
+                <div id="artworks">
+                    <ArtDisplay />
+                    {/* <Controls /> */}
+                </div>
+                <div id="controls">
+                    <AudioDisplay />
+                </div>
+                <div id="poetry">
+                    <PoetryDisplay />
+                </div>
+            </div>
         </div>
     );
 }
