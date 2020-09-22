@@ -10,7 +10,7 @@ This project is an interactive art exhibition, displaying various artworks of Ke
 
 ## Innhold
 * [Motivation](#motivation)
-* [Instalation](#instalation)
+* [Installation](#installation)
 * [How to use the product](#hvordan-anvende-produktet)
 * [Functionality](#egenskaper)
 * [Components](#screenshots)
@@ -29,7 +29,7 @@ We were given the task to make an interactive art gallery consiting of pictures,
 We chose to use [Keith Harings](https://www.haring.com/!/about-haring/bio) artworks as inspiration for our project.
 The arworks are animated and displayed with new color palettes, but the genious and simplicity of Harings artworks were keåt intact.
 
-## Intstalation
+## Installation
 **To run the project**
 
 * Install [Node.js](https://nodejs.org)
@@ -49,6 +49,36 @@ Trenger screenshots av ferdig frontend for å kunne forklare her
 Hvilke funksjonaliteter har nettsiden
 
 ## Components
+
+This project consists of four main components.
+
+#### ControlDisplay
+
+This component is used to control and manipulate the rendering of the other components. 
+ControlDisplay consists of three sliders that are used to change the parameters of the exhibition. We have one slider for changing the arworks color-palette, 
+one for the mood of the music and one for the theme of the poetry.
+
+The context API returns the selected value of the sliders as variables, which then is used by the other components. 
+The use of states within each component makes the components re-render every time the sliders are moved.
+
+#### ArtDisplay
+
+#### PoetryDisplay
+
+ PoetryDisplay uses AJAX to fetch poems from PoetryDB. The poems gets returned as a JSON-object, where every line of text is formatted as a line-attribute.
+ The function `getText()` takes in all the lines from the poem, and adds them to a single string that later gets rendered as a `<p>`element.
+ 
+ The adress for the different poems used in this project, are stored in a list called `input`. 
+ PoetryDisplay picks a poem from the list to display by using the variable returned from ControlDisplay as an index in the `input`list.
+ 
+
+####  AudioDisplay
+
+
+
+
+
+
 
 Skrive litt om audio, artwork, control og poetry display. Hvordan er be bygget opp og hva gjør de? Lurk med litt eksempelkode her tror jeg
 
