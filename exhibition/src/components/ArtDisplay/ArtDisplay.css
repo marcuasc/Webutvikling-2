@@ -1,4 +1,6 @@
-#artContainer {
+#artContainer,
+#artContainer svg {
     width: 400px;
     border-radius: 20px;
+    margin: 0;
 }
