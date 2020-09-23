@@ -1,6 +1,6 @@
 import React from "react";
 
-let input = [];
+let input = ["./resources/AudioFiles/alien.mp3", "./resources/AudioFiles/birds.mp3", "./resources/AudioFiles/waterfall.mp3"];
 
 interface AppState {
     currentIndex: number;
@@ -23,7 +23,7 @@ class AudioDisplay extends React.Component<AppProps, AppState> {
     render(){
         return(
             <div>
-                <audio src="./resources/AudioFiles/woo.mp3" controls autoPlay/>
+                <audio src= {input[2]} controls autoPlay/>
             </div>
         );
 
