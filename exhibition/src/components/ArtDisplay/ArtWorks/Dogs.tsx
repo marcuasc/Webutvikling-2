@@ -9,7 +9,11 @@ class Dogs extends React.Component {
         addPlugin(waapiPlugin);
     }
 
-    animateHover() {
+    componentDidMount() {
+        this.animate();
+    }
+
+    animate() {
         const leftDogMouthAnimation = sequence([
             {
                 targets: "#leftDogMouth",
@@ -34,7 +38,9 @@ class Dogs extends React.Component {
             },
         ]);
 
-        leftDogMouthAnimation.play();
+        leftDogMouthAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightDogMouthAnimation = sequence([
             {
@@ -60,7 +66,9 @@ class Dogs extends React.Component {
             },
         ]);
 
-        rightDogMouthAnimation.play();
+        rightDogMouthAnimation.play({
+            repeat: Infinity,
+        });
 
         const leftBarkAnimation = sequence([
             {
@@ -86,7 +94,9 @@ class Dogs extends React.Component {
             },
         ]);
 
-        leftBarkAnimation.play();
+        leftBarkAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightBarkAnimation = sequence([
             {
@@ -112,12 +122,13 @@ class Dogs extends React.Component {
             },
         ]);
 
-        rightBarkAnimation.play();
+        rightBarkAnimation.play({
+            repeat: Infinity,
+        });
     }
     render() {
         return (
             <svg
-                onMouseEnter={this.animateHover}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

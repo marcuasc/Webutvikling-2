@@ -9,7 +9,7 @@ class Earth extends React.Component {
         addPlugin(waapiPlugin);
     }
 
-    animateHover() {
+    animate() {
         const earthAnimation = sequence([
             {
                 targets: "#earth",
@@ -34,7 +34,9 @@ class Earth extends React.Component {
             },
         ]);
 
-        earthAnimation.play();
+        earthAnimation.play({
+            repeat: Infinity,
+        });
 
         const earthShineAnimation = sequence([
             {
@@ -60,7 +62,9 @@ class Earth extends React.Component {
             },
         ]);
 
-        earthShineAnimation.play();
+        earthShineAnimation.play({
+            repeat: Infinity,
+        });
 
         const leftManAnimation = sequence([
             {
@@ -86,7 +90,9 @@ class Earth extends React.Component {
             },
         ]);
 
-        leftManAnimation.play();
+        leftManAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightManAnimation = sequence([
             {
@@ -112,13 +118,18 @@ class Earth extends React.Component {
             },
         ]);
 
-        rightManAnimation.play();
+        rightManAnimation.play({
+            repeat: Infinity,
+        });
+    }
+
+    componentDidMount() {
+        this.animate();
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animateHover}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

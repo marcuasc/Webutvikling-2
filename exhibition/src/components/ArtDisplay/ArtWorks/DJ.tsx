@@ -9,6 +9,10 @@ class DJ extends React.Component {
         addPlugin(waapiPlugin);
     }
 
+    componentDidMount() {
+        this.animate();
+    }
+
     animate() {
         const leftArmAnimation = sequence([
             {
@@ -34,7 +38,9 @@ class DJ extends React.Component {
             },
         ]);
 
-        leftArmAnimation.play();
+        leftArmAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightArmAnimation = sequence([
             {
@@ -102,7 +108,9 @@ class DJ extends React.Component {
             },
         ]);
 
-        rightArmAnimation.play();
+        rightArmAnimation.play({
+            repeat: Infinity,
+        });
 
         const barkAnimation = sequence([
             {
@@ -142,13 +150,14 @@ class DJ extends React.Component {
             },
         ]);
 
-        barkAnimation.play();
+        barkAnimation.play({
+            repeat: Infinity,
+        });
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animate}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"
