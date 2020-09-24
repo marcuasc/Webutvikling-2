@@ -9,6 +9,10 @@ class Heart extends React.Component {
         addPlugin(waapiPlugin);
     }
 
+    componentDidMount() {
+        this.animate();
+    }
+
     animate() {
         const heartAnimation = sequence([
             {
@@ -36,7 +40,7 @@ class Heart extends React.Component {
         ]);
 
         heartAnimation.play({
-            repeat: 3,
+            repeat: Infinity,
         });
 
         const heartShineAnimation = sequence([
@@ -65,38 +69,9 @@ class Heart extends React.Component {
             },
         ]);
 
-        heartShineAnimation.play();
-        // const body = SVG("#body");
-        // const heartShine = SVG("#heartShine");
-        // const heart = SVG("#heart");
-        // body.timeline().finish();
-        // heartShine.timeline().finish();
-        // heart.timeline().finish();
-        // body.animate({ duration: 300 })
-        //     .transform({ rotate: 5 })
-        //     .animate({ duration: 300 })
-        //     .transform({ rotate: -5 })
-        //     .animate({ duration: 300 })
-        //     .transform({ rotate: 0 });
-        // if (!this.state.animated) {
-        //     this.setState({ animated: true });
-        //     heart
-        //         .animate({ duration: 1000 })
-        //         .transform({ scale: 1.2, translateY: -3, translateX: -1 });
-        //     heartShine
-        //         .animate({ duration: 500 })
-        //         .transform({ scale: 1.3, translateY: -5, translateX: -2 })
-        //         .animate({ duration: 500 })
-        //         .transform({ scale: 1.2 });
-        // } else {
-        //     this.setState({ animated: false });
-        //     heart
-        //         .animate({ duration: 1000 })
-        //         .transform({ scale: 1, translateY: 0, translateX: 0 });
-        //     heartShine
-        //         .animate({ duration: 500 })
-        //         .transform({ scale: 1, translateY: 0, translateX: 0 });
-        // }
+        heartShineAnimation.play({
+            repeat: Infinity,
+        });
     }
 
     render() {

@@ -8,7 +8,12 @@ class Snake extends React.Component {
         super(props);
         addPlugin(waapiPlugin);
     }
-    animateHover() {
+
+    componentDidMount() {
+        this.animate();
+    }
+
+    animate() {
         const scissorLeftAnimation = sequence([
             {
                 targets: "#scissorLeft",
@@ -31,9 +36,19 @@ class Snake extends React.Component {
                     transform: [{ value: "rotate(0deg)" }],
                 },
             },
+            {
+                targets: "#scissorLeft",
+                duration: 0,
+                delay: 200,
+                web: {
+                    transform: [{ value: "rotate(0deg)" }],
+                },
+            },
         ]);
 
-        scissorLeftAnimation.play();
+        scissorLeftAnimation.play({
+            repeat: Infinity,
+        });
 
         const scissorRightAnimationAndSnip = sequence([
             {
@@ -57,9 +72,19 @@ class Snake extends React.Component {
                     transform: [{ value: "rotate(0deg)" }],
                 },
             },
+            {
+                targets: "#scissorRight",
+                duration: 0,
+                delay: 200,
+                web: {
+                    transform: [{ value: "rotate(0deg)" }],
+                },
+            },
         ]);
 
-        scissorRightAnimationAndSnip.play();
+        scissorRightAnimationAndSnip.play({
+            repeat: Infinity,
+        });
 
         const snipAnimation = sequence([
             {
@@ -86,34 +111,14 @@ class Snake extends React.Component {
             },
         ]);
 
-        snipAnimation.play();
-
-        // const snip = SVG("#snip");
-        // const scissorLeft = SVG("#scissorLeft");
-        // const scissorRight = SVG("#scissorRight");
-        // snip.timeline().finish();
-        // scissorLeft.timeline().finish();
-        // scissorRight.timeline().finish();
-        // scissorLeft
-        //     .animate({ duration: 400 })
-        //     .rotate(-30, 38, 35)
-        //     .animate({ duration: 400 })
-        //     .rotate(30, 38, 35);
-        // scissorRight
-        //     .animate({ duration: 400 })
-        //     .rotate(10, 38, 35)
-        //     .animate({ duration: 400 })
-        //     .rotate(-10, 38, 35);
-        // snip.animate({ duration: 200, delay: 200 })
-        //     .transform({ scale: 1.2 })
-        //     .animate({ duration: 200 })
-        //     .transform({ scale: 1 });
+        snipAnimation.play({
+            repeat: Infinity,
+        });
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animateHover}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

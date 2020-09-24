@@ -41,7 +41,9 @@ class BestBuddies extends React.Component {
             },
         ]);
 
-        yellowArmAnimation.play();
+        yellowArmAnimation.play({
+            repeat: Infinity,
+        });
 
         const redArmAnimation = sequence([
             {
@@ -74,7 +76,9 @@ class BestBuddies extends React.Component {
             },
         ]);
 
-        redArmAnimation.play();
+        redArmAnimation.play({
+            repeat: Infinity,
+        });
 
         const shineAnimation = sequence([
             {
@@ -100,31 +104,18 @@ class BestBuddies extends React.Component {
             },
         ]);
 
-        shineAnimation.play();
-        // const yellowArm = SVG("#yellowArm");
-        // const redArm = SVG("#redArm");
-        // const shine = SVG("#shine");
-        // if (!this.state.animated) {
-        //     this.setState({ animated: true });
-        //     yellowArm.animate({ duration: 500 }).rotate(10, 9, 58);
-        //     redArm.animate({ duration: 500 }).rotate(-10, 88, 59);
-        //     shine
-        //         .animate({ duration: 500 })
-        //         .transform({ scale: 1.1, translateY: -5 });
-        // } else {
-        //     yellowArm.animate({ duration: 500 }).rotate(-10, 9, 58);
-        //     redArm.animate({ duration: 500 }).rotate(10, 88, 59);
-        //     this.setState({ animated: false });
-        //     shine
-        //         .animate({ duration: 500 })
-        //         .transform({ scale: 1, translateY: 0 });
-        // }
+        shineAnimation.play({
+            repeat: Infinity,
+        });
+    }
+
+    componentDidMount() {
+        this.animate();
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animate}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

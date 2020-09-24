@@ -2,3 +2,14 @@
     width: 400px;
     border-radius: 20px;
 }
+
+#buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+#buttons > button {
+    width: 90px;
+    padding: 10px;
+    border-radius: 50px;
+}

@@ -60,8 +60,12 @@ class ArtDisplay extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <div id="artContainer" onClick={this.next}>
+            <div id="artContainer">
                 {this.state.artworks[this.state.currentIndex]}
+                <div id="buttons">
+                    <button onClick={this.previous}>Previous</button>
+                    <button onClick={this.next}>Next</button>
+                </div>
             </div>
         );
     }
