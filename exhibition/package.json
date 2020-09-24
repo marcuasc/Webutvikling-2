@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.0.16",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,6 +10,7 @@
     "@types/node": "^12.12.55",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "just-animate": "^2.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
@@ -36,5 +36,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
