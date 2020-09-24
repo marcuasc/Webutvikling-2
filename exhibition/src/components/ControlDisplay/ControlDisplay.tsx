@@ -18,7 +18,6 @@ class ControlDisplay extends React.Component<IProps, IState> {
       SoundTheme: 1,
       PoetryTheme: 1,
     };
-
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleChange3 = this.handleChange3.bind(this);
@@ -36,16 +35,19 @@ class ControlDisplay extends React.Component<IProps, IState> {
   }
 
   handleClick() {
-    console.log(
-      "Nr.1: " +
-        this.state.ColorTheme +
-        "  " +
-        "Nr.2: " +
-        this.state.SoundTheme +
-        "  " +
-        "Nr.3: " +
-        this.state.PoetryTheme
-    );
+    const { ColorTheme, SoundTheme, PoetryTheme } = this.state;
+    localStorage.setItem("ColorTheme", JSON.stringify(ColorTheme));
+    localStorage.setItem("SoundTheme", JSON.stringify(SoundTheme));
+    localStorage.setItem("PoetryTheme", JSON.stringify(PoetryTheme));
+  }
+  componentDidMount() {
+    const ct = localStorage.getItem("ColorTheme");
+    const st = localStorage.getItem("SoundTheme");
+    const pt = localStorage.getItem("PoetryTheme");
+    this.setState({ SoundTheme: 2 });
+    /*console.log(ct + "," + st + "," + pt);
+    const ct1 = document.getElementById("ctSlider");
+    console.log(ct1);*/
   }
 
   render() {
@@ -59,6 +61,7 @@ class ControlDisplay extends React.Component<IProps, IState> {
         <div id="ColorTheme" className="sliderContainer">
           <p>ColorTheme</p>
           <input
+            id="ctSlider"
             className="slider"
             type="range"
             min="0"
