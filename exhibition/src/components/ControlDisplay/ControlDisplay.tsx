@@ -48,6 +48,7 @@ class ControlDisplay extends React.Component<IProps, IState> {
     /*console.log(ct + "," + st + "," + pt);
     const ct1 = document.getElementById("ctSlider");
     console.log(ct1);*/
+    //få satt default
   }
 
   render() {
