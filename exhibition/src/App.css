@@ -13,16 +13,12 @@
     width: 70%;
     background-color: antiquewhite;
     border-radius: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
-    gap: 30px;
     padding: 30px;
-}
-
-#controls {
-    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #poetry {
-    grid-column: 1 / span 3;
+    min-width: 100%;
 }

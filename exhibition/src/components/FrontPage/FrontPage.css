@@ -1,0 +1,61 @@
+#frontPage {
+    background-color: lightblue;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-wrap: wrap;
+}
+
+#container > img {
+    width: 300px;
+    height: 200px;
+    padding-right: 30px;
+}
+
+#container > div {
+    width: 60%;
+    min-width: 300px;
+}
+
+#introText {
+    padding-top: 30px;
+    font-size: 1.5em;
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+#introText > span {
+    font-weight: bold;
+}
+
+#startButton {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.showing {
+    display: block;
+}
+
+.hiding {
+    display: none;
+}

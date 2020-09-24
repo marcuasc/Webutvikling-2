@@ -4,11 +4,10 @@ let input = [];
 
 interface AppState {
     currentIndex: number;
-    audioFiles: []
+    audioFiles: [];
 }
 
-interface AppProps {
-}
+interface AppProps {}
 
 class AudioDisplay extends React.Component<AppProps, AppState> {
     constructor(props: AppProps) {
@@ -16,21 +15,16 @@ class AudioDisplay extends React.Component<AppProps, AppState> {
         this.state = {
             currentIndex: 0,
             audioFiles: [],
-        }
+        };
     }
 
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <audio src="./resources/AudioFiles/woo.mp3" controls autoPlay/>
+                <audio src="./resources/AudioFiles/woo.mp3" controls autoPlay />
             </div>
         );
-
-
     }
 }
-
-
 
 export default AudioDisplay;
