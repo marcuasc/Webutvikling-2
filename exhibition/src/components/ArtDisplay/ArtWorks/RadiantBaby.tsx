@@ -9,7 +9,10 @@ class RadiantBaby extends React.Component {
         addPlugin(waapiPlugin);
     }
 
-    animateHover() {
+    componentDidMount() {
+        this.animate();
+    }
+    animate() {
         const bodyAnimation = sequence([
             {
                 targets: "#body",
@@ -42,7 +45,7 @@ class RadiantBaby extends React.Component {
         ]);
 
         bodyAnimation.play({
-            repeat: 3,
+            repeat: Infinity,
         });
 
         const shineAnimation = sequence([
@@ -72,14 +75,13 @@ class RadiantBaby extends React.Component {
         ]);
 
         shineAnimation.play({
-            repeat: 3,
+            repeat: Infinity,
         });
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animateHover}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

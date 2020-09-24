@@ -9,6 +9,10 @@ class Dance extends React.Component {
         addPlugin(waapiPlugin);
     }
 
+    componentDidMount() {
+        this.animate();
+    }
+
     animate() {
         const person1Animation = sequence([
             {
@@ -34,7 +38,9 @@ class Dance extends React.Component {
             },
         ]);
 
-        person1Animation.play();
+        person1Animation.play({
+            repeat: Infinity,
+        });
 
         const person2Animation = sequence([
             {
@@ -60,7 +66,9 @@ class Dance extends React.Component {
             },
         ]);
 
-        person2Animation.play();
+        person2Animation.play({
+            repeat: Infinity,
+        });
 
         const person3Animation = sequence([
             {
@@ -86,7 +94,9 @@ class Dance extends React.Component {
             },
         ]);
 
-        person3Animation.play();
+        person3Animation.play({
+            repeat: Infinity,
+        });
 
         const person4Animation = sequence([
             {
@@ -112,7 +122,9 @@ class Dance extends React.Component {
             },
         ]);
 
-        person4Animation.play();
+        person4Animation.play({
+            repeat: Infinity,
+        });
 
         const person5Animation = sequence([
             {
@@ -138,7 +150,9 @@ class Dance extends React.Component {
             },
         ]);
 
-        person5Animation.play();
+        person5Animation.play({
+            repeat: Infinity,
+        });
 
         const strokesAnimation = sequence([
             {
@@ -164,13 +178,14 @@ class Dance extends React.Component {
             },
         ]);
 
-        strokesAnimation.play();
+        strokesAnimation.play({
+            repeat: Infinity,
+        });
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animate}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

@@ -8,6 +8,11 @@ class Football extends React.Component {
         super(props);
         addPlugin(waapiPlugin);
     }
+
+    componentDidMount() {
+        this.animate();
+    }
+
     animate() {
         const ballAnimation = sequence([
             {
@@ -27,7 +32,9 @@ class Football extends React.Component {
             },
         ]);
 
-        ballAnimation.play();
+        ballAnimation.play({
+            repeat: Infinity,
+        });
 
         const leftLegAnimation = sequence([
             {
@@ -58,9 +65,19 @@ class Football extends React.Component {
                     transform: [{ value: "rotate(0deg)" }],
                 },
             },
+            {
+                targets: "#leftLeg",
+                duration: 0,
+                delay: 600,
+                web: {
+                    transform: [{ value: "rotate(0deg)" }],
+                },
+            },
         ]);
 
-        leftLegAnimation.play();
+        leftLegAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightLegAnimation = sequence([
             {
@@ -91,9 +108,19 @@ class Football extends React.Component {
                     transform: [{ value: "rotate(0deg)" }],
                 },
             },
+            {
+                targets: "#rightLeg",
+                duration: 0,
+                delay: 600,
+                web: {
+                    transform: [{ value: "rotate(0deg)" }],
+                },
+            },
         ]);
 
-        rightLegAnimation.play();
+        rightLegAnimation.play({
+            repeat: Infinity,
+        });
 
         const leftPowAnimation = sequence([
             {
@@ -118,9 +145,19 @@ class Football extends React.Component {
                     transform: [{ value: "scale(1)" }],
                 },
             },
+            {
+                targets: "#leftPow",
+                duration: 0,
+                delay: 400,
+                web: {
+                    transform: [{ value: "scale(1)" }],
+                },
+            },
         ]);
 
-        leftPowAnimation.play();
+        leftPowAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightPowAnimation = sequence([
             {
@@ -145,15 +182,24 @@ class Football extends React.Component {
                     transform: [{ value: "scale(1)" }],
                 },
             },
+            {
+                targets: "#rightPow",
+                duration: 0,
+                delay: 400,
+                web: {
+                    transform: [{ value: "scale(1)" }],
+                },
+            },
         ]);
 
-        rightPowAnimation.play();
+        rightPowAnimation.play({
+            repeat: Infinity,
+        });
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animate}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"

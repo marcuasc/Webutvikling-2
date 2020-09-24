@@ -40,7 +40,9 @@ class CrackDown extends React.Component {
             },
         ]);
 
-        footAnimation.play();
+        footAnimation.play({
+            repeat: Infinity,
+        });
 
         const leftPowAnimation = sequence([
             {
@@ -67,7 +69,9 @@ class CrackDown extends React.Component {
             },
         ]);
 
-        leftPowAnimation.play();
+        leftPowAnimation.play({
+            repeat: Infinity,
+        });
 
         const rightPowAnimation = sequence([
             {
@@ -94,33 +98,18 @@ class CrackDown extends React.Component {
             },
         ]);
 
-        rightPowAnimation.play();
-        // const foot = SVG("#foot");
-        // const rightPow = SVG("#rightPow");
-        // const leftPow = SVG("#leftPow");
-        // foot.timeline().finish();
-        // rightPow.timeline().finish();
-        // leftPow.timeline().finish();
-        // foot.animate({ duration: 400 })
-        //     .transform({ translateY: -5 })
-        //     .animate({ duration: 200 })
-        //     .transform({ translateY: 0 });
-        // rightPow
-        //     .animate({ duration: 200, delay: 600 })
-        //     .transform({ scale: 1.1, translateX: 4 })
-        //     .animate({ duration: 200 })
-        //     .transform({ scale: 1, translateX: 0 });
-        // leftPow
-        //     .animate({ duration: 200, delay: 600 })
-        //     .transform({ scale: 1.1, translateX: -4 })
-        //     .animate({ duration: 200 })
-        //     .transform({ scale: 1, translateX: 0 });
+        rightPowAnimation.play({
+            repeat: Infinity,
+        });
+    }
+
+    componentDidMount() {
+        this.animate();
     }
 
     render() {
         return (
             <svg
-                onMouseEnter={this.animate}
                 width="100%"
                 height="100%"
                 viewBox="0 0 100 100"
