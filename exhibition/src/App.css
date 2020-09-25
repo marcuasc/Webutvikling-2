@@ -17,6 +17,18 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 30px;
+    min-width: 300px;
+}
+
+#artworks {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#controls {
+    flex: 2;
+    min-width: 300px;
 }
 
 #poetry {

@@ -1,10 +1,10 @@
 import React from "react";
 import "./PoetryDisplay.css";
 
-let input= [
+let input = [
     "https://poetrydb.org/title/A Fragment: To Music/lines.json",
-    'https://poetrydb.org/title/Fragment: \'The Death Knell Is Ringing\'/lines.json',
-    "https://poetrydb.org/title/Dying at my music!/lines.json"
+    "https://poetrydb.org/title/Fragment: 'The Death Knell Is Ringing'/lines.json",
+    "https://poetrydb.org/title/Dying at my music!/lines.json",
 ];
 
 interface AppState {
@@ -22,7 +22,7 @@ class PoetryDisplay extends React.Component<AppProps, AppState> {
     }
 
     componentDidMount(): void {
-        fetch(input[2])
+        fetch(input[0])
             .then((response) => response.json())
             .then((poem) => {
                 this.setState({ data: poem[0].lines });

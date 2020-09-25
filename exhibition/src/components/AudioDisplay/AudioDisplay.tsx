@@ -1,4 +1,5 @@
 import React from "react";
+import "./AudioDisplay.css";
 
 let input = [
     "./resources/AudioFiles/alien.mp3",
@@ -24,7 +25,7 @@ class AudioDisplay extends React.Component<AppProps, AppState> {
 
     render() {
         return (
-            <div>
+            <div id="audioDisplay">
                 <audio src={input[2]} controls autoPlay />
             </div>
         );

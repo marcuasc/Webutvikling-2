@@ -1,6 +1,5 @@
 #artContainer,
 #artContainer svg {
-    width: 400px;
     border-radius: 20px;
     margin: 0;
 }
@@ -14,4 +13,5 @@
     width: 90px;
     padding: 10px;
     border-radius: 50px;
+    margin-top: 10px;
 }
