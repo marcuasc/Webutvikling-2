@@ -1,6 +1,7 @@
-#artContainer {
-    width: 400px;
+#artContainer,
+#artContainer svg {
     border-radius: 20px;
+    margin: 0;
 }
 
 #buttons {
@@ -12,4 +13,5 @@
     width: 90px;
     padding: 10px;
     border-radius: 50px;
+    margin-top: 10px;
 }

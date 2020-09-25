@@ -1,0 +1,8 @@
+#audioDisplay {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#audioDisplay > audio {
+    width: 100%;
+}
