@@ -1,33 +1,23 @@
 # Project 2
 
-Welcome to this readme.md for project 2 in the subject IT2810 - Web development
-
-This project is an interactive art exhibition, displaying various artworks of Keith Haring, combined with fitting poetry and music.
-
-
-
-
-
-## Innhold
+## Table of contents
 * [Motivation](#motivation)
 * [Installation](#installation)
-* [How to use the product](#hvordan-anvende-produktet)
-* [Functionality](#egenskaper)
-* [Components](#screenshots)
-* [Layout](#teknologi-og-rammeverk)
-* [Examplecode](#eksempelkode)
+* [SVG and animations](#SVG)
+* [Poems and AJAX](#Poems and AJAX)
+* [Audio](#Audio)
+* [Controller](#controller)
+* [Layout](#layout)
+* [Web storage](#webstorage)
 * [Testing](#testing)
-* [Contributing](#bidra)
-* [Team](#team)
-* [Lisens](#lisens)
-* 
+
 
 
 ## Motivation
 
 We were given the task to make an interactive art gallery consiting of pictures, text and audio. 
 We chose to use [Keith Harings](https://www.haring.com/!/about-haring/bio) artworks as inspiration for our project.
-The arworks are animated and displayed with new color palettes, but the genious and simplicity of Harings artworks were keåt intact.
+The arworks are animated and displayed with new color palettes, but the genious and simplicity of Harings artworks were kept intact.
 
 ## Installation
 **To run the project**
@@ -39,63 +29,43 @@ The arworks are animated and displayed with new color palettes, but the genious 
 * Write `npm start` in your terminal to run the project
 
 
-## How to use the project
-
-Trenger screenshots av ferdig frontend for å kunne forklare her
+## SVG and animations
 
 
-## Functionality
 
-Hvilke funksjonaliteter har nettsiden
 
-## Components
+## Poems and AJAX
 
-This project consists of four main components.
+We use AJAX to dynamically fetch poems from poetryDB. By dynamically fetching the poems, we can update the poem without re-rendering the whole newsite.
 
-#### ControlDisplay
+The component PoetryDisplay uses the fetches the chosen poem in its lifecycle-method to ensure that the poem is retrieved after the component gets rendered.
+
+The fetch method returns a JSON-object with separation between all the lines of the poem. The method `getText()` appends the lines into an empty string on at a time, thus creating a single string with containing the whole poem. 
+The string then gets returned and rendered as a single `<p>` element.
+
+The adresses for the different poems used in this project are stored locally in a list called `input`. 
+PoetryDisplay picks a poem from the list to display by using the variable returned from on of the sliders in ControlDisplay as an index in the `input`list.
+
+## Audio
+The component AudioDisplay uses the HTML audio-tag to render audio and controlls. We have three audio-files, one for each of the themes selected by the controller component.
+All the audio-files are stored in the projects `Public` folder, and the different paths are stored locally in a list in AudioDisplay. The component picks the index of the list corresponding to the chosen sound theme of the user.
+
+All the files are from [SoundBible](http://soundbible.com/tags-mp3.html) and are royalty free.
+
+## Controller
 
 This component is used to control and manipulate the rendering of the other components. 
-ControlDisplay consists of three sliders that are used to change the parameters of the exhibition. We have one slider for changing the arworks color-palette, 
+ControlDisplay consists of three sliders that are used to change the parameters of the exhibition. We have one slider for changing the artworks color-palette, 
 one for the mood of the music and one for the theme of the poetry.
 
-The context API returns the selected value of the sliders as variables, which then is used by the other components. 
-The use of states within each component makes the components re-render every time the sliders are moved.
-
-#### ArtDisplay
-
-#### PoetryDisplay
-
- PoetryDisplay uses AJAX to fetch poems from PoetryDB. The poems gets returned as a JSON-object, where every line of text is formatted as a line-attribute.
- The function `getText()` takes in all the lines from the poem, and adds them to a single string that later gets rendered as a `<p>`element.
- 
- The adress for the different poems used in this project, are stored in a list called `input`. 
- PoetryDisplay picks a poem from the list to display by using the variable returned from ControlDisplay as an index in the `input`list.
- 
-
-####  AudioDisplay
-
-
-
-
-
-
-
-Skrive litt om audio, artwork, control og poetry display. Hvordan er be bygget opp og hva gjør de? Lurk med litt eksempelkode her tror jeg
+The controls are used as a provider in the Context API, which is used by the other compoents to determine its rendering.
+The use of states within each component makes the components re-render every time the sliders are moved, without re-rendering the whole site.
 
 ## Layout
 
-Hvordan endte vi opp med utseendet på nettsiden. Grid vs flexbox, plassering av elementer, utseende på knapper osv osv.
+## Webstorage
 
 ## Testing
-
-Hva og hvordan har vi testet. Hvorfor valgte vi å teste det vi gjorde? Vise dekningsgrad av testene?
-
-
-
-
-
-
-
 
 
 
