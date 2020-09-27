@@ -65,7 +65,17 @@ The use of states within each component makes the components re-render every tim
 
 ## Webstorage
 
+We have used both localstorage and sessionstorage in this project. 
+
+Localstorage is used to store the users favourite combinations of artwork, color-palette, audio and poem. We have a button that is used to save the chosen configuration, and a button that renders the components with the previously chosen configuration.
+
+Sessionstorage is used to store the poem, audio and color-palette of each artwork. When the user returns to a previously seen artwork, the artwork will have the same configuration the user left it in. 
+
 ## Testing
+
+We have added a snapshot test for `PoetryDisplay`, `AudioDisplay` and `ArtworkDisplay`. A snapshot of what the components renders have been stored in the project, and the tests compares the rendered components to that of the snapshot. Any changes will give a failed test.
+
+The project is responsive, and works well on all devices and screen-sizes. We have manually tested on a computer with various window-sizes, and on an iPhone. All components renders correctly and has the wanted layout.
 
 
 
