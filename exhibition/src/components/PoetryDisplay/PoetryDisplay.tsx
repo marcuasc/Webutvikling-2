@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { updateDefaultClause } from "typescript";
+import WebContext, { WebContextInterface } from "../../WebContext";
 import "./PoetryDisplay.css";
 
 let input = [
@@ -7,43 +9,79 @@ let input = [
     "https://poetrydb.org/title/Dying at my music!/lines.json",
 ];
 
-interface AppState {
-    data: Array<any>;
-}
+const PoetryDisplay: React.FunctionComponent = () => {
+    const values: WebContextInterface = React.useContext(WebContext);
+    let [data, setData] = React.useState([]);
 
-interface AppProps {}
+    useEffect(() => {
+        updateData();
+    }, []);
 
-class PoetryDisplay extends React.Component<AppProps, AppState> {
-    constructor(props: AppProps) {
-        super(props);
-        this.state = {
-            data: [],
-        };
-    }
-
-    componentDidMount(): void {
-        fetch(input[0])
+    function updateData() {
+        console.log(values.poetry);
+        fetch(input[values.poetry])
             .then((response) => response.json())
             .then((poem) => {
-                this.setState({ data: poem[0].lines });
+                setData(poem[0].lines);
             });
     }
 
-    getText() {
+    function getText() {
         let text = "";
-        for (let e in this.state.data) {
-            text += this.state.data[e] + " ";
+        for (let e in data) {
+            text += data[e] + " ";
         }
         return text;
     }
 
-    render() {
-        return (
-            <div>
-                <p>{this.getText()}</p>
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <p>{getText()}</p>
+        </div>
+    );
+};
+
+// interface PoetryDisplayProps {
+// }
+
+// interface PoetryDisplayState {
+//     data: Array<any>;
+// }
+
+// class PoetryDisplay extends React.Component<
+//     PoetryDisplayProps,
+//     PoetryDisplayState
+// > {
+//     constructor(props: PoetryDisplayProps) {
+//         super(props);
+//         this.state = {
+//             data: [],
+//         };
+//     }
+
+//     componentDidMount(): void {
+//         fetch(input[1])
+//             .then((response) => response.json())
+//             .then((poem) => {
+//                 this.setState({ data: poem[0].lines });
+//             });
+//     }
+
+//     getText() {
+//         let text = "";
+//         for (let e in this.state.data) {
+//             text += this.state.data[e] + " ";
+//         }
+//         return text;
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 <p>{this.getText()}</p>
+//             </div>
+//         );
+//     }
+// }
 
 export default PoetryDisplay;
