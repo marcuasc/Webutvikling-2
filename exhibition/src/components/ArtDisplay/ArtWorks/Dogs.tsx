@@ -3,8 +3,30 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class Dogs extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface DogsProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#F5E702",
+        ground: "#D05492",
+        dogs: "#8DDA50",
+    },
+    {
+        background: "#FDF900",
+        ground: "#A4E800",
+        dogs: "#DC2908",
+    },
+    {
+        background: "#63AFE3",
+        ground: "#FF7802",
+        dogs: "#C24E75",
+    },
+];
+
+class Dogs extends React.Component<DogsProps> {
+    constructor(props: DogsProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -145,7 +167,9 @@ class Dogs extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#f5e702" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g id="ground">
                         <rect
@@ -154,7 +178,7 @@ class Dogs extends React.Component {
                             width="114"
                             height="28.501"
                             style={{
-                                fill: "#d05492",
+                                fill: ColorThemes[this.props.color].ground,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
@@ -536,7 +560,7 @@ class Dogs extends React.Component {
                     <g id="leftDog">
                         <path
                             d="M-4,63l9.287,-0.388l0.617,18.264l5.938,0.572l1.687,-18.857l7.546,-0.346l-1.061,19.917l6.044,-0.369l2.648,-22.59l18.366,-0.064l0.223,-5.701l-15.097,-3.789l0.021,-7.449l-5.61,-0.188l-3.108,-5.711l-3.135,5.126l-3.933,-3.66l-2.378,4.949l-18.055,0.284l0,20Z"
-                            style={{ fill: "#8dda50" }}
+                            style={{ fill: ColorThemes[this.props.color].dogs }}
                         />
                         <path
                             d="M26.609,42.012l5.477,-1.134"
@@ -566,7 +590,7 @@ class Dogs extends React.Component {
                             id="leftDogMouth"
                             d="M30.764,49.787l12.437,-9.798l-2.915,-3.867l-13.723,6.034"
                             style={{
-                                fill: "#8dda50",
+                                fill: ColorThemes[this.props.color].dogs,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
@@ -575,7 +599,7 @@ class Dogs extends React.Component {
                     <g id="rightDog">
                         <path
                             d="M101.652,45.594l-8.375,-0.489l-1.609,-4.468l-3.448,3.597l-3.303,-2.784l-2.474,4.046l-6.365,-1.767l-0.554,8.68l-11.924,-1.409l-1.922,5.113l17.803,9.528l-4.934,15.909l3.766,2.319l9.04,-15.103l3.395,0.072l-1.721,13.275l4.447,1.528l4.243,-12.77l3.839,0.259l0.096,-25.536Z"
-                            style={{ fill: "#8dda50" }}
+                            style={{ fill: ColorThemes[this.props.color].dogs }}
                         />
                         <path
                             d="M76.529,42.524l5.914,2.972"
@@ -605,7 +629,7 @@ class Dogs extends React.Component {
                             id="rightDogMouth"
                             d="M75.921,52.579c0,0 -8.032,-11.393 -7.743,-12.416c0.289,-1.023 1.707,-2.976 2.81,-2.91c1.103,0.066 11.523,8.232 11.523,8.232"
                             style={{
-                                fill: "#8dda50",
+                                fill: ColorThemes[this.props.color].dogs,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}

@@ -3,11 +3,34 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class CrackDown extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface CrackDownProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#FFD253",
+        groundAndFoot: "#FF7802",
+        men: "#00E1FF",
+    },
+    {
+        background: "#8CCCD5",
+        groundAndFoot: "#FE0002",
+        men: "#B7BBD6",
+    },
+    {
+        background: "#FDF900",
+        groundAndFoot: "#A4E800",
+        men: "#80C56A",
+    },
+];
+
+class CrackDown extends React.Component<CrackDownProps> {
+    constructor(props: CrackDownProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
+
     animate() {
         const footAnimation = sequence([
             {
@@ -126,13 +149,16 @@ class CrackDown extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#ffd253" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g id="ground">
                         <path
                             d="M110.328,92.967l-113.983,-1.967l-0.207,12l113.983,1.967l0.207,-12Z"
                             style={{
-                                fill: "#ff7802",
+                                fill:
+                                    ColorThemes[this.props.color].groundAndFoot,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -202,7 +228,7 @@ class CrackDown extends React.Component {
                     <g>
                         <path
                             d="M10.445,102.619l-0.419,-8.683l2.497,-8.141l2.675,-2.995l-0.908,-6.672l5.74,-4.219l0.884,-2.799l2.674,0.267l1.393,3.365l-5.945,4.674l1.1,4.144l3.514,-0.473l2.353,2.079l0.3,2.098l5.048,0.892l3.184,-4.995l4.752,2.046l-2.611,1.997l-2.112,6.053l-7.407,-1.353l-2.203,4.391l-1.104,6.142l-5.181,0.012l-0.422,-2.639l-3.981,0.285l-0.101,3.02l-3.72,1.504Z"
-                            style={{ fill: "#00e1ff" }}
+                            style={{ fill: ColorThemes[this.props.color].men }}
                         />
                         <path
                             d="M10,101c0,0 -2.636,-10.634 5.315,-18.467c0.101,0.096 -1.721,-5.859 -1.11,-6.758c0.612,-0.899 5.699,-3.94 5.699,-3.94c0,0 0.116,-4.912 3.574,-2.348c0.681,0.6 1.687,2.967 1.687,2.967c-0,0 -6.442,3.598 -6.583,4.937c-0.051,0.81 1.142,3.334 1.142,3.334"
@@ -248,7 +274,7 @@ class CrackDown extends React.Component {
                     <g>
                         <path
                             d="M55.526,100.643l4.762,-4.913l-5.526,-7.594l-6.909,2.378l-1.933,-6.457l-2.384,-1.631l1.138,-1.045l2.732,-0.681l3.005,5.014l4.141,-2.328l0.559,-3.351l2.758,-1.993l4.099,0.582l2.986,-3.912l-7.156,-6.744l3.314,-3.467l2.243,2.884l6.397,6.717l-2.767,5.295l2.452,6.685l1.74,7.755l0.966,7.096l-5.237,-0.613l-2.674,-2.682l-2.57,3.072l-6.136,-0.067Z"
-                            style={{ fill: "#00e1ff" }}
+                            style={{ fill: ColorThemes[this.props.color].men }}
                         />
                         <path
                             d="M54.546,101.117l5.846,-5.527c0,-0 -4.1,-6.768 -5.668,-7.232c-1.568,-0.465 -6.281,2.789 -7.264,1.882c-0.983,-0.907 -1.663,-6.588 -1.663,-6.588c0,-0 -5.779,-1.152 0.588,-3.165c1.887,-0.484 3.157,3.948 3.881,5.288c-0.022,0.583 4.078,-2.205 4.078,-2.205"
@@ -328,7 +354,10 @@ class CrackDown extends React.Component {
                     <g id="foot">
                         <path
                             d="M8.218,-1.519l0.229,8.214l2.079,8.9l5.078,11.623l-1.915,10.015l-1.612,9.283l2.24,6.703l5.503,3.468l10.907,-3.207l6.208,-4.517l7.189,-3.951l23.204,-0.452l17.398,-2.392l4.819,-3.963l-0.121,-2.362l-1.681,-1.596l0.279,-3.37l-3.341,-3.077l-0.568,-4.321l-5.716,-0.873l-2.736,-2.461l-3.579,0.362l-1.759,-2.402l-10.415,4.849l-8.636,0.371l-0.623,-15.162l1.549,-9.397l-43.98,-0.285Z"
-                            style={{ fill: "#ff7802" }}
+                            style={{
+                                fill:
+                                    ColorThemes[this.props.color].groundAndFoot,
+                            }}
                         />
                         <path
                             d="M8.096,-1.207c0,0 -1.008,14.523 7.379,27.771c1.725,5.701 -8.738,21.05 0.39,28.225c9.129,7.176 22.202,-9.366 28.708,-9.787c6.506,-0.422 42.297,1.224 44.789,-6.243c2.492,-7.467 -15.824,-7.011 -20.828,-3.806"

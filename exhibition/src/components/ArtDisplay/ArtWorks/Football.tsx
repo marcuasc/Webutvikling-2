@@ -3,8 +3,30 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class Football extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface FootballProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#EF4023",
+        men: "#07B2EA",
+        ball: "#FFF301",
+    },
+    {
+        background: "#8CCCD5",
+        men: "#FE0002",
+        ball: "#B7BBD6",
+    },
+    {
+        background: "#FDF900",
+        men: "#A4E800",
+        ball: "#80C56A",
+    },
+];
+
+class Football extends React.Component<FootballProps> {
+    constructor(props: FootballProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -216,12 +238,14 @@ class Football extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#ef4023" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g>
                         <path
                             d="M7.906,101.127l6.402,-16.697l-10.145,-5.524l-5.442,1.894l-0.151,-82.177l10.664,-0.418l-0.7,5.682l-4.145,3.238l0.872,26.324l7.275,4.1l20.395,-24.679l5.259,0.399l2.09,4.235l-6.117,2.86l-21.769,32.298l0.655,8.626l7.314,-4.009l10.06,10.377l-9.2,-0.373l-4.114,4.546l8.136,7.518l-5.657,15.519l8.588,0.787l3.043,2.262l0,3.167l-23.313,0.045Z"
-                            style={{ fill: "#07b2ea" }}
+                            style={{ fill: ColorThemes[this.props.color].men }}
                         />
                         <path
                             d="M23.728,66.388l-2.295,0.518"
@@ -235,7 +259,7 @@ class Football extends React.Component {
                             id="leftLeg"
                             d="M21.434,66.905c2.335,1.752 14.431,10.269 14.431,10.269c-0,0 16.408,-12.665 11.417,-18.195c-4.01,-3.007 -10.347,5.679 -11.799,7.188c-0.869,0.615 -13.057,-9.029 -15.036,-8.717"
                             style={{
-                                fill: "#07b2ea",
+                                fill: ColorThemes[this.props.color].men,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
@@ -300,13 +324,13 @@ class Football extends React.Component {
                     <g>
                         <path
                             d="M68.754,101.591l1.014,-3.689l12.035,-1.895l-5.041,-11.76l7.918,-9.909l-5.329,-2.498l-5.624,-0.276l5.801,-9.888l8.464,3.401l-24.123,-55.825l2.722,-3.809l3.864,-0.012l2.272,5.376l5.378,11.38l8.83,11.726l4.235,-2.394l4.598,0.328l-0.43,-10.343l-10.697,-1.645l-3.691,-4.023l1.559,-4.719l2.363,-1.109l4.63,3.778l14.692,0.175l-2.05,59.865l-5.927,1.308l-7.159,11.409l2.134,6.688l-0.888,8.162l-21.55,0.198Z"
-                            style={{ fill: "#07b2ea" }}
+                            style={{ fill: ColorThemes[this.props.color].men }}
                         />
                         <path
                             id="rightLeg"
                             d="M79.486,71.731c-3.452,1.049 -23.259,7.93 -26.081,3.906c-2.822,-4.024 5.549,-20.287 9.736,-19.693c4.186,0.594 0.843,9.339 -0.054,11.072c2.083,0.002 16.494,-5.356 16.494,-5.356"
                             style={{
-                                fill: "#07b2ea",
+                                fill: ColorThemes[this.props.color].men,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
@@ -448,7 +472,7 @@ class Football extends React.Component {
                         id="ball"
                         d="M57.239,40.677c-0,-0 -9.025,-0.431 -8.75,8.48c0.275,8.91 8.944,6.185 9.398,6.125c0.455,-0.061 9.799,-0.952 9.239,-8.53c-0.56,-7.577 -9.376,-5.819 -9.887,-6.075Z"
                         style={{
-                            fill: "#fff301",
+                            fill: ColorThemes[this.props.color].ball,
                             stroke: "#000",
                             strokeWidth: "2.78px",
                         }}
