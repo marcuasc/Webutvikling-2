@@ -3,8 +3,30 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class Snake extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface SnakeProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#FEF200",
+        scissors: "#56AE40",
+        snake: "#FF384E",
+    },
+    {
+        background: "#DD8239",
+        scissors: "#C24E75",
+        snake: "#81C7B4",
+    },
+    {
+        background: "#63AFE3",
+        scissors: "#C75C26",
+        snake: "#FFEE28",
+    },
+];
+
+class Snake extends React.Component<SnakeProps> {
+    constructor(props: SnakeProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -135,13 +157,15 @@ class Snake extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#fef200" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g>
                         <path
                             d="M13.52,76.329l8.402,2.671c0,-0 7.172,1.906 6.974,8.024c-0.199,6.118 -12.345,8.744 -19.896,6.78c9.643,-1.729 18.095,-7.097 11.259,-10.314c-4.742,-2.231 -5.917,-1.682 -7.262,-1.87"
                             style={{
-                                fill: "#ff384e",
+                                fill: ColorThemes[this.props.color].snake,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -149,7 +173,7 @@ class Snake extends React.Component {
                         <path
                             d="M77.303,97.365l5.089,-14.093l11.247,3.666c-0,0 4.362,-17.686 -12.34,-12.951c-0.543,-1.824 -2.332,-5.359 1.614,-12.846c3.945,-7.486 3.281,-25.444 -8.948,-25.829c-12.229,-0.385 -11.846,12.725 -11.877,15.5c-0.031,2.775 -1.571,9.939 -15.92,14.465c-0.008,0.039 1.466,2.124 1.466,2.124l-1.309,2.635l2.04,0.178l-0.054,2.473c-0,-0 16.815,-7.137 17.765,-11.623c0.95,-4.486 1.956,-12.528 6.095,-12.382c4.139,0.145 4.052,7.103 0.334,14.303c-3.717,7.2 0.968,11.758 0.745,12.189c-0.223,0.43 -9.331,13.88 4.053,22.191Z"
                             style={{
-                                fill: "#ff384e",
+                                fill: ColorThemes[this.props.color].snake,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -188,7 +212,7 @@ class Snake extends React.Component {
                         <path
                             d="M17.208,88.674c-0,0 18.952,-44.525 20.46,-45.898c1.508,-1.372 16.467,-12.885 17.742,-14.589c1.718,0.362 19.508,0.654 18.779,-12.58c2.584,-0.206 5.177,-5.407 -3.475,-4.597c-1.475,1.739 -0.77,6.67 -1.47,7.525c-0.7,0.854 -9.14,3.66 -12.224,2.429c-3.084,-1.231 -4.999,-4.26 -4.999,-4.26c0,-0 2.669,-10.652 15.034,-9.275c5.094,6.225 9.384,-1.33 2.782,-4.313c-2.224,-3.091 -25.212,4.918 -27.669,17.872c-5.359,8.859 -15.393,18.245 -15.393,18.245c0,-0 -20.253,21.6 -9.567,49.441Z"
                             style={{
-                                fill: "#56ae40",
+                                fill: ColorThemes[this.props.color].scissors,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -196,7 +220,7 @@ class Snake extends React.Component {
                         <path
                             d="M47.882,23.949c-0,-0 -2.33,-5.5 1.719,-6.536c3.846,-1.492 12.781,2.039 3.549,8.024"
                             style={{
-                                fill: "#56ae40",
+                                fill: ColorThemes[this.props.color].scissors,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -206,7 +230,7 @@ class Snake extends React.Component {
                         <path
                             d="M57.56,85.413c-0,-0 -12.76,-39.076 -18.69,-42.846c-2.985,-6.587 -16.994,0.018 -18.42,-18.506c-5.478,-1.593 -16.294,-12.225 0.145,-21.875c1.406,-4.053 5.04,-2.103 6.025,-0.503c0.985,1.601 -1.718,4.31 -4.134,3.713c-1.932,1.093 -10.08,8.559 0.966,13.143c4.519,0.736 8.3,-0.841 8.3,-0.841c0,0 10.001,-9.124 -3.505,-14.217c-1.55,-0.803 -2.32,-6.039 2.279,-4.868c4.6,1.172 14.734,10.023 6.98,22.537c1.335,2.125 2.834,4.25 2.206,7.145c1.774,1.681 24.25,20.999 17.848,57.118Z"
                             style={{
-                                fill: "#56ae40",
+                                fill: ColorThemes[this.props.color].scissors,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -214,7 +238,7 @@ class Snake extends React.Component {
                         <path
                             d="M26.618,23.658c-4.984,-2.79 -1.594,-7.386 1.125,-7.469c2.719,-0.083 6.9,1.536 3.981,7.149"
                             style={{
-                                fill: "#56ae40",
+                                fill: ColorThemes[this.props.color].scissors,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -234,7 +258,7 @@ class Snake extends React.Component {
                     <path
                         d="M14.049,81.692c-5.448,-0.281 -8.747,-4.314 -9.32,-8.227c-1.636,-5.606 2.745,-12.115 7.539,-12.956c4.793,-0.841 8.86,-0.513 15.33,4.175c6.47,4.687 14.388,1.775 14.388,1.775l-1.534,2.996l2.765,0.812l-1.35,2.311l3.79,1.499c0,-0 -12.292,5.4 -22.27,-2.07c-7.595,-5.35 -13.547,-3.857 -13.361,0.448c0.237,3.264 3.495,3.866 3.495,3.866"
                         style={{
-                            fill: "#ff384e",
+                            fill: ColorThemes[this.props.color].snake,
                             stroke: "#000",
                             strokeWidth: "2.08px",
                         }}

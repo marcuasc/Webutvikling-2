@@ -3,8 +3,33 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class Earth extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface EarthProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#C75C26",
+        men: "#FFEE28",
+        water: "#63AFE3",
+        ground: "#69AB49",
+    },
+    {
+        background: "#FDF900",
+        men: "#A4E800",
+        water: "#244E9A",
+        ground: "#FE0002",
+    },
+    {
+        background: "#8CCCD5",
+        men: "#D05492",
+        water: "#EA3A60",
+        ground: "#FC7A00",
+    },
+];
+
+class Earth extends React.Component<EarthProps> {
+    constructor(props: EarthProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -147,7 +172,9 @@ class Earth extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#c75c26" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g>
                         <path
@@ -259,7 +286,7 @@ class Earth extends React.Component {
                         <path
                             d="M72,101l-1,-4l7,-3l-7,-16c0,0 -13.167,4.245 -14,4c-0.833,-0.245 -7.401,-13.433 -8,-14c-4.986,-1.047 -6.081,-4.148 0,-4c1.332,-0.157 9.238,10.634 9,11c-0.238,0.366 13,-5 13,-5l10,-6l6,-8c0,0 -5.021,-4.956 -5,-6c0.136,-3.061 7.041,-7.646 5,0c0.447,1.027 6,8 6,8l-5,6c0,0 8.815,29.982 8,37c-0.815,7.018 -6,1 -6,1l-2,-5l-7,2l0,5l-9,-3Z"
                             style={{
-                                fill: "#ffee28",
+                                fill: ColorThemes[this.props.color].men,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -267,7 +294,7 @@ class Earth extends React.Component {
                         <path
                             d="M76,72c0,0 -8.102,-0.912 -5,-7c4.814,-5.742 11.047,-1.145 11,4"
                             style={{
-                                fill: "#ffee28",
+                                fill: ColorThemes[this.props.color].men,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -333,7 +360,7 @@ class Earth extends React.Component {
                         <path
                             d="M13,101c0,0 -7.327,-9.197 4,-27c-0.05,-0.501 -10,-6 -10,-6l4,-10c0,0 -5.068,-6.172 6,-3c0.173,0.987 -5,10 -5,10l9,4l23,5c0,0 4.611,-8.223 5,-9c1.668,-2.842 9.531,5.79 3,4c-1.504,-0.256 -5,9 -5,9l-11,-1l-10,15l6,9l-8,0l-4,-4l0,6l-7,-2Z"
                             style={{
-                                fill: "#ffee28",
+                                fill: ColorThemes[this.props.color].men,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -341,7 +368,7 @@ class Earth extends React.Component {
                         <path
                             d="M24,75c0,0 -7.977,-4.58 1,-9c8.977,-4.42 11.133,7.633 7,9"
                             style={{
-                                fill: "#ffee28",
+                                fill: ColorThemes[this.props.color].men,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -351,7 +378,7 @@ class Earth extends React.Component {
                         <path
                             d="M46,7c0,0 -25.248,0.254 -26,24c-0.752,23.746 24.506,23 25,23c0.494,-0 26.918,-2.465 28,-25c1.082,-22.535 -26.049,-21.667 -27,-22Z"
                             style={{
-                                fill: "#63afe3",
+                                fill: ColorThemes[this.props.color].water,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -359,7 +386,7 @@ class Earth extends React.Component {
                         <path
                             d="M64.274,46.359c-0,-0 -4.387,-3.984 -6.274,-4.359c-0.486,-1.592 -0.132,-5.009 1,-6c0.408,-1.303 -2.344,-3.792 0,-5c2.344,-1.208 3.895,2.364 6,2c2.105,-0.364 1.015,-0.998 3,-1c1.985,-0.002 4.466,1.181 4.466,1.181c-0.706,4.683 -3.236,9.105 -8.192,13.178Z"
                             style={{
-                                fill: "#69ab49",
+                                fill: ColorThemes[this.props.color].ground,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -367,7 +394,7 @@ class Earth extends React.Component {
                         <path
                             d="M62.064,10.547l-1.064,1.453l-3,0c0,0 1.616,2.404 0,2c-1.616,-0.404 -4.735,-0.954 -4,1c0.735,1.954 0.904,4.178 -1,4c-1.904,-0.178 -3.264,3.905 -1,4c2.264,0.095 5.151,-1.348 5,0c-0.151,1.348 -0.53,3.064 0,3c0.53,-0.064 3.472,-1.595 4,0c0.528,1.595 1.491,3.246 2,3c0.509,-0.246 1.43,-2.281 3,-2c1.57,0.281 1.637,2.363 3,1c1.363,-1.363 3.817,-2.873 3.817,-2.873c0.08,-4.762 -5.204,-13.185 -10.753,-14.58Z"
                             style={{
-                                fill: "#69ab49",
+                                fill: ColorThemes[this.props.color].ground,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}
@@ -375,7 +402,7 @@ class Earth extends React.Component {
                         <path
                             d="M38.308,8.257l-1.308,3.743c0,0 3.047,2.675 1,6c-2.047,3.325 -2.333,2.646 -2,4c0.333,1.354 3.571,9.995 1,9c-2.571,-0.995 -1.991,-3.161 -3,-3c-1.009,0.161 -6.706,3.14 -6,4c0.706,0.86 6.565,1.148 6,3c-0.565,1.852 -2.972,3.867 -3,6c-0.028,2.133 -0.549,5.194 -2,5c-1.451,-0.194 -1.571,-3.526 -3,-4c-1.429,-0.474 -4.394,-4.022 -2,-9c0.666,-2.557 -0.552,-2.098 -1,-3c-0.448,-0.902 1.087,-5.214 0,-5c-1.087,0.214 -1.834,-0.888 -1.834,-0.888c1.084,-7.311 11.113,-15.24 17.142,-15.855Z"
                             style={{
-                                fill: "#69ab49",
+                                fill: ColorThemes[this.props.color].ground,
                                 stroke: "#000",
                                 strokeWidth: "2.08px",
                             }}

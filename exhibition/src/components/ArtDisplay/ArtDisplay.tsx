@@ -12,21 +12,21 @@ import CrackDown from "./ArtWorks/CrackDown";
 import BestBuddies from "./ArtWorks/BestBuddies";
 import WebContext, { WebContextInterface } from "../../WebContext";
 
-const artWorks = [
-    <BestBuddies />,
-    <CrackDown />,
-    <Dance />,
-    <DJ />,
-    <Dogs />,
-    <Earth />,
-    <Football />,
-    <Heart />,
-    <RadiantBaby />,
-    <Snake />,
-];
-
 const ArtDisplay: React.FunctionComponent = () => {
     const values: WebContextInterface = React.useContext(WebContext);
+
+    const artWorks = [
+        <BestBuddies color={values.color} />,
+        <CrackDown color={values.color} />,
+        <Dance color={values.color} />,
+        <DJ color={values.color} />,
+        <Dogs color={values.color} />,
+        <Earth color={values.color} />,
+        <Football color={values.color} />,
+        <Heart color={values.color} />,
+        <RadiantBaby color={values.color} />,
+        <Snake color={values.color} />,
+    ];
 
     function saveValues(index: number) {
         window.sessionStorage.setItem(

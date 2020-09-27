@@ -3,8 +3,42 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class Dance extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface DanceProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#FDF900",
+        ground: "#A4E800",
+        man1: "#DC2908",
+        man2: "#17A2E5",
+        man3: "#80C56A",
+        man4: "#EA3A60",
+        man5: "#FC7A00",
+    },
+    {
+        background: "#0077BB",
+        ground: "#FF5E00",
+        man1: "#FC7A00",
+        man2: "#DC2908",
+        man3: "#17A2E5",
+        man4: "#80C56A",
+        man5: "#EA3A60",
+    },
+    {
+        background: "#8CCCD5",
+        ground: "#D05492",
+        man1: "#EA3A60",
+        man2: "#FC7A00",
+        man3: "#DC2908",
+        man4: "#17A2E5",
+        man5: "#80C56A",
+    },
+];
+
+class Dance extends React.Component<DanceProps> {
+    constructor(props: DanceProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -203,13 +237,15 @@ class Dance extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#fdf900" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g id="ground">
                         <path
                             d="M110.964,79l-113.964,2.852l0.5,19.994l113.965,-2.852l-0.501,-19.994Z"
                             style={{
-                                fill: "#a4e800",
+                                fill: ColorThemes[this.props.color].ground,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -806,7 +842,7 @@ class Dance extends React.Component {
                         <path
                             d="M6.545,81.084l3.326,-5.689c0,-0 -4.259,-2.64 -4.247,-7.519c0.012,-4.879 0.728,-25.202 -0.146,-26.192c-1.586,0.095 -3.741,-2.597 -0.472,-3.579c2.079,-0.596 2.266,1.221 2.769,2.956c0.359,1.903 0.944,7.439 1.319,7.94c0.375,0.501 6.617,1.962 6.617,1.962c0,0 8.59,0.021 9.758,1.194c0.313,1.187 -0.867,6.423 -0.834,6.561c2.429,0.355 3.417,3.68 -3.244,2.008c-0.063,-0.875 1.031,-5.298 0.797,-6.376c-0.656,0.034 -5.021,0.03 -5.021,0.03l-0.481,9.542l4.087,0.892c-0,-0 0.65,8.658 0.638,8.703c2.761,-0.773 7.6,2.674 -3.136,3.992c-0.218,-0.195 -1.229,-9.055 -1.229,-9.055c-0,0 -4.807,1.416 -6.519,1.308c0.662,0.951 3.767,4.597 3.767,4.597c0,-0 -3.498,4.798 -3.466,5.152c2.605,1.263 3.362,5.715 -4.283,1.573Z"
                             style={{
-                                fill: "#dc2908",
+                                fill: ColorThemes[this.props.color].man1,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -814,7 +850,7 @@ class Dance extends React.Component {
                         <path
                             d="M11.272,52.329c-2.31,-0.606 -3.605,-3.835 -0.44,-5.04c3.165,-1.204 5.809,1.461 4.68,4.397"
                             style={{
-                                fill: "#dc2908",
+                                fill: ColorThemes[this.props.color].man1,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -824,7 +860,7 @@ class Dance extends React.Component {
                         <path
                             d="M33.747,75.764c0,0 -1.05,-13.136 -0.485,-13.361c0.566,-0.226 2.269,-0.541 2.523,0.09c0.254,0.63 0.237,12.082 0.717,12.877c5.205,3.966 9.695,1.956 3.484,-1.211c0.046,-0.259 1.25,-20.144 -1.572,-25.648c0.647,-0.993 5.92,-10.708 7.253,-11.46c2.859,-0.813 2.728,-5.144 -2.095,-2.238c-3.302,3.223 -6.786,9.9 -7.217,10.433c-0.431,0.532 -7.517,1.23 -7.517,1.23c-0,-0 -9.907,-8.99 -11.671,-8.658c-1.764,0.333 -2.225,2.869 0.798,3.156c2.368,1.244 11.083,9.002 11.487,9.828c-0.062,0.932 0.295,20.797 1.061,23.335c-4.439,2.367 -3.91,4.652 3.234,1.627Z"
                             style={{
-                                fill: "#17a2e5",
+                                fill: ColorThemes[this.props.color].man2,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -832,7 +868,7 @@ class Dance extends React.Component {
                         <path
                             d="M31.961,49.558c-3.197,-0.786 -4.141,-4.55 0.209,-5.355c4.35,-0.806 5.665,3.618 3.843,5.643"
                             style={{
-                                fill: "#17a2e5",
+                                fill: ColorThemes[this.props.color].man2,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -842,7 +878,7 @@ class Dance extends React.Component {
                         <path
                             d="M48.128,76.854c0,-0 -5.021,-5.349 -4.922,-6.41c0.099,-1.062 4.352,-9.071 3.982,-9.529c-0.37,-0.458 -3.958,-3.934 -1.049,-5.51c1.419,-0.684 6.502,-2.443 6.502,-2.443l6.089,-1.828c0,0 3.406,6.451 3.574,6.374c2.136,-0.466 2.651,1.604 -0.335,3.078c-1.221,-0.719 -5.565,-5.284 -5.565,-5.284c-0,0 -0.301,9.174 -5.688,14.609c0.594,0.894 5.441,4.844 4.965,5.492c-1.452,1.763 -4.697,4.976 -5.629,4.02c-2.159,2.674 -7.463,2.765 -1.924,-2.569Z"
                             style={{
-                                fill: "#80c56a",
+                                fill: ColorThemes[this.props.color].man3,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -850,7 +886,7 @@ class Dance extends React.Component {
                         <path
                             d="M48.932,55.192c-2.566,0.215 -6.306,-1.656 -1.847,-4.717c3.849,-1.898 5.516,2.982 5.53,3.235"
                             style={{
-                                fill: "#80c56a",
+                                fill: ColorThemes[this.props.color].man3,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -858,7 +894,7 @@ class Dance extends React.Component {
                         <path
                             d="M47.466,61.083c-0,-0 8.156,5.215 8.231,5.698c-0.517,2.258 2.786,3.412 3.015,-1.098c-1.914,-0.999 -9.239,-6.118 -9.743,-7.399"
                             style={{
-                                fill: "#80c56a",
+                                fill: ColorThemes[this.props.color].man3,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -876,7 +912,7 @@ class Dance extends React.Component {
                         <path
                             d="M66.014,77.177l-2.425,-3.54l6.232,-14.931c0,0 -7.166,-9.228 -7.307,-11.262c-1.291,0.131 -2.958,-0.079 -3.315,0.131c-3.118,2.019 -4.549,-2.334 3.268,-3.444c0.542,0.55 6.604,6.632 6.604,6.632l4.894,-1.796l4.063,-4.114c0,-0 -6.621,-3.152 -6.66,-3.426c0.496,-3.764 3.608,-4.159 3.436,-1.009c0.64,0.563 7.288,4.564 7.528,4.983c0.241,0.42 -5.431,5.658 -5.431,5.658c-0,0 3.458,9.949 -5.301,20.802c0.453,0.731 3.263,5.578 3.263,5.578c-0,0 -5.216,4.293 -6.287,2.098c-4.904,1.799 -9.356,0.482 -2.562,-2.36Z"
                             style={{
-                                fill: "#ea3a60",
+                                fill: ColorThemes[this.props.color].man4,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -884,7 +920,7 @@ class Dance extends React.Component {
                         <path
                             d="M71.782,52.966c-2.26,-0.311 -4.182,-3.108 -0.704,-4.369c3.479,-1.261 5.051,2.867 3.858,4.188"
                             style={{
-                                fill: "#ea3a60",
+                                fill: ColorThemes[this.props.color].man4,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -892,7 +928,7 @@ class Dance extends React.Component {
                         <path
                             d="M70.796,65.888l-3.067,7.531l3.636,3.538c-0,-0 -3.251,1.27 -2.672,2.667"
                             style={{
-                                fill: "#ea3a60",
+                                fill: ColorThemes[this.props.color].man4,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -902,7 +938,7 @@ class Dance extends React.Component {
                         <path
                             d="M80.345,75.712l4.307,-4.655c-0,0 -5.038,-2.853 1.188,-12.647c-0.676,-0.21 -5.508,-0.483 -5.508,-0.483c-0,0 0.013,-4.695 -0.026,-5.413c-1.459,-0.815 -1.424,-2.209 1.699,-2.206c0.376,1.494 0.543,4.604 0.543,4.604l4.326,0.064l6.675,-0.491l4.288,-1.541l3.112,2.272l0.469,4.471l-3.829,-2.698l-2.24,1.07c-0,0 -1.456,4.678 -2.341,5.748c0.737,-0.054 3.779,-0.645 3.779,-0.645l1.047,5.12l4.019,-0.229l-0.24,2.295l-6.162,1.925l-1.026,-6.012c0,-0 -4.866,1.971 -6.846,2.148c0.142,0.868 1.368,3.131 1.368,3.131c0,-0 -3.493,3.114 -3.903,3.458c1.45,1.295 3.733,8.21 -4.699,0.714Z"
                             style={{
-                                fill: "#fc7a00",
+                                fill: ColorThemes[this.props.color].man5,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -910,7 +946,7 @@ class Dance extends React.Component {
                         <path
                             d="M89.842,57.158c-3.294,-0.874 -4.042,-4.516 -0.729,-5.52c3.313,-1.003 4.804,2.71 4.283,4.682"
                             style={{
-                                fill: "#fc7a00",
+                                fill: ColorThemes[this.props.color].man5,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}

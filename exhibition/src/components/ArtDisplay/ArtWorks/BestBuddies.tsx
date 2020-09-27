@@ -3,8 +3,33 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class BestBuddies extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface BestBuddiesProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#8CCCD5",
+        ground: "#B7BBD6",
+        leftMan: "#FCBB3D",
+        rightMan: "#EE693C",
+    },
+    {
+        background: "#F5E702",
+        ground: "#D05492",
+        leftMan: "#8DDA50",
+        rightMan: "#FF384E",
+    },
+    {
+        background: "#EF4023",
+        ground: "#69AB49",
+        leftMan: "#07B2EA",
+        rightMan: "#FFF301",
+    },
+];
+
+class BestBuddies extends React.Component<BestBuddiesProps> {
+    constructor(props: BestBuddiesProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -133,7 +158,9 @@ class BestBuddies extends React.Component {
                         y="-0"
                         width="100"
                         height="100"
-                        style={{ fill: "#8cccd5" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g id="ground">
                         <rect
@@ -142,7 +169,7 @@ class BestBuddies extends React.Component {
                             width="114"
                             height="20"
                             style={{
-                                fill: "#b7bbd6",
+                                fill: ColorThemes[this.props.color].ground,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
@@ -521,7 +548,9 @@ class BestBuddies extends React.Component {
                         <path
                             id="yellowBg"
                             d="M21.894,100.569l6.518,-15.12c-0,0 -11.224,-8.517 -9.294,-29.581c0.309,-0.889 -11.282,6.165 -11.282,6.165l-4.146,-9.307l13.585,-8.046l-0.026,-6.556l4.935,-5.14l4.911,-2.595l6.735,0.293l3.661,2.465l2.997,6.967l14.12,-8.487l6.489,1.266l-2.822,7.396l-15.063,11.126l-2.181,19.268l6.364,8.694l-3.364,22.331l-22.137,-1.139Z"
-                            style={{ fill: "#fcbb3d" }}
+                            style={{
+                                fill: ColorThemes[this.props.color].leftMan,
+                            }}
                         />
                         <path
                             d="M21.825,100.732c-0,0 6.536,-14.535 6.589,-14.586c0.052,-0.051 -11.937,-10.581 -9.231,-31.057c-0.003,0.043 -6.091,4.192 -6.091,4.192"
@@ -568,12 +597,16 @@ class BestBuddies extends React.Component {
                         <path
                             id="redBg2"
                             d="M15.488,64.44l-1.365,-5.324l3.838,-2.202l-0.094,7.015l-2.379,0.511Z"
-                            style={{ fill: "#ee693c" }}
+                            style={{
+                                fill: ColorThemes[this.props.color].rightMan,
+                            }}
                         />
                         <path
                             id="redBg"
                             d="M73.117,100.345l-0.405,-14.931l7.491,-11.669l-3.249,-20.334l10.622,10.363l5.537,-5.229l-5.077,-7.708l-3.803,-1.398l-1.132,-4.858l-4.006,-0.938l-0.495,-7.804l-7.818,-6.375l-7.62,2.391l-3.654,3.779l-0.861,5.704l2.329,4.488l-15.773,4.236l-1.686,2.249l-0.673,5.587l16.336,-2.793l1.734,16.217l-6.91,10.268l0.836,19.373l18.277,-0.618Z"
-                            style={{ fill: "#ee693c" }}
+                            style={{
+                                fill: ColorThemes[this.props.color].rightMan,
+                            }}
                         />
                         <path
                             d="M42.523,58.076l16.97,-3.386c0,0 0.375,14.309 1.618,16.899c-0.032,-0.085 -7.109,10.019 -7.109,10.019l1.023,19.532"
@@ -635,7 +668,7 @@ class BestBuddies extends React.Component {
                             id="redArm"
                             d="M93.146,58.084l-7.467,12.582c0,0 0.856,6.532 -3.57,6.507c-4.426,-0.024 -8.158,-3.752 -5.182,-7.637c0.598,-0.48 6.958,-9.48 6.958,-9.48"
                             style={{
-                                fill: "#ee693c",
+                                fill: ColorThemes[this.props.color].rightMan,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
@@ -646,14 +679,16 @@ class BestBuddies extends React.Component {
                             id="yellowArm"
                             d="M3.702,52.267c-0,0 3.275,24.794 4.77,27.395c-0.042,0.021 -4.855,3.508 -2.123,7.125c2.732,3.616 9.321,-1.548 9.962,-3.589c0.64,-2.042 -1.36,-22.006 -3.213,-23.928"
                             style={{
-                                fill: "#fcbb3d",
+                                fill: ColorThemes[this.props.color].leftMan,
                                 stroke: "#000",
                                 strokeWidth: "2.78px",
                             }}
                         />
                         <path
                             d="M80.695,42.529l3.278,1.368c0,0 -1.157,7.482 3.794,6.987c4.95,-0.494 5.542,-4.647 5.467,-5.492c-0.076,-0.845 2.012,-5.544 -12.855,-7.958c0.403,1.958 0.404,2.189 0.316,5.095Z"
-                            style={{ fill: "#fcbb3d" }}
+                            style={{
+                                fill: ColorThemes[this.props.color].leftMan,
+                            }}
                         />
                         <path
                             d="M79.123,43.48l4.016,1.227c-0,0 -0.323,6.672 4.628,6.177c4.95,-0.494 5.542,-4.647 5.467,-5.492c-0.076,-0.845 1.145,-7.024 -13.722,-9.438"

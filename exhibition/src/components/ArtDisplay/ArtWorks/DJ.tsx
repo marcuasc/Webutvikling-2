@@ -3,8 +3,36 @@ import { sequence } from "just-animate";
 import { addPlugin } from "just-animate";
 import { waapiPlugin } from "just-animate/lib/web";
 
-class DJ extends React.Component {
-    constructor(props: Readonly<{}>) {
+interface DJProps {
+    color: number;
+}
+
+const ColorThemes = [
+    {
+        background: "#DFD35B",
+        table: "#4FA5D8",
+        base: "#C24E75",
+        disk: "#80CBB7",
+        dog: "#DD8239",
+    },
+    {
+        background: "#FDF900",
+        table: "#A4E800",
+        base: "#DC2908",
+        disk: "#FE0002",
+        dog: "#17A2E5",
+    },
+    {
+        background: "#F5E702",
+        table: "#D05492",
+        base: "#8DDA50",
+        disk: "#07B2EA",
+        dog: "#DC2908",
+    },
+];
+
+class DJ extends React.Component<DJProps> {
+    constructor(props: DJProps) {
         super(props);
         addPlugin(waapiPlugin);
     }
@@ -175,7 +203,9 @@ class DJ extends React.Component {
                         y="0"
                         width="100"
                         height="100"
-                        style={{ fill: "#dfd35b" }}
+                        style={{
+                            fill: ColorThemes[this.props.color].background,
+                        }}
                     />
                     <g>
                         <g id="bark">
@@ -312,7 +342,7 @@ class DJ extends React.Component {
                     <g id="body">
                         <path
                             d="M32.49,100.987l2.433,-36.355l-0.926,-0.431l-10.827,4.012l-3.671,-2.179l3.5,-4.21l8.607,-2.345l5.985,-3.589l1.949,-2.99l-1.518,-6.572l-4.378,-6.852l5.914,0.059l-0.482,-4.296l5.754,2.055l21.747,-5.477l2.215,3.944l-16.675,7.478l17.187,2.11l0.507,3.177l-15.787,3.998l0.941,3.268l19.437,5.22l-4.026,6.844l-7.553,-2.882l-6.843,-1.466l1.895,37.19l-11.358,0.406l-0.512,-6.48l-3.651,0.016l-0.102,6.953l-9.762,-0.606Z"
-                            style={{ fill: "#dd8239" }}
+                            style={{ fill: ColorThemes[this.props.color].dog }}
                         />
                         <path
                             d="M32.486,101.088c-0,0 2.479,-33.4 2.478,-36.386c-0,-2.986 -10.317,5.431 -13.953,2.575"
@@ -351,7 +381,7 @@ class DJ extends React.Component {
                         <path
                             d="M3,101c0,0 0.302,-12.238 1,-12c0.698,0.238 40.214,-0.391 42,0c1.786,0.391 9.176,-0.067 11,0c1.824,0.067 36.373,-1.866 37,0c0.627,1.866 0,12 0,12l-7,0c0,0 0.612,-3.286 0,-4c-0.612,-0.714 -32.511,-1.397 -35,-1c-2.489,0.397 -22.419,0.417 -24,0c-1.581,-0.417 -18.35,-0.694 -19,0c-0.65,0.694 -0.333,5.771 -1,6c-0.667,0.229 -5,-1 -5,-1Z"
                             style={{
-                                fill: "#4fa5d8",
+                                fill: ColorThemes[this.props.color].table,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -359,7 +389,7 @@ class DJ extends React.Component {
                         <path
                             d="M12,91c0,0 3.673,2.261 10,2c6.327,-0.261 14.727,0.77 18,0c3.273,-0.77 5.557,-0.631 5.556,-1.429c-0.001,-0.797 0.71,-5.992 -0.255,-6.465c-0.965,-0.474 -31.39,-2.262 -32.597,-0.748c-1.206,1.515 -0.676,4.289 -0.704,6.642Z"
                             style={{
-                                fill: "#c24e75",
+                                fill: ColorThemes[this.props.color].base,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -367,7 +397,7 @@ class DJ extends React.Component {
                         <path
                             d="M54.552,83.251c0,-0 -0.964,5.12 -0.19,6.774c0.775,1.654 17.333,1.531 19.287,1.311c1.955,-0.22 13.122,0.316 13.361,-1.578c0.239,-1.894 0.445,-6.432 -0.996,-6.625c-1.442,-0.192 -30.709,-0.74 -31.462,0.118Z"
                             style={{
-                                fill: "#c24e75",
+                                fill: ColorThemes[this.props.color].base,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -375,7 +405,7 @@ class DJ extends React.Component {
                         <path
                             d="M30.561,79.574c-0,0 -13.403,-0.536 -13.043,4.064c0.361,4.6 8.65,4.492 11.442,4.492c2.791,0 13.966,-0.883 13.888,-4.47c-0.079,-3.587 -9.22,-4.46 -12.287,-4.086Z"
                             style={{
-                                fill: "#80cbb7",
+                                fill: ColorThemes[this.props.color].disk,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -383,7 +413,7 @@ class DJ extends React.Component {
                         <path
                             d="M69.501,78.09c0,0 -11.135,-1.146 -10.743,3.915c0.392,5.061 9.435,4.697 11.426,4.733c1.991,0.036 11.032,-0.095 11.134,-3.847c0.102,-3.751 -9.33,-5.16 -11.817,-4.801Z"
                             style={{
-                                fill: "#81c7b4",
+                                fill: ColorThemes[this.props.color].disk,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -416,7 +446,7 @@ class DJ extends React.Component {
                         id="rightArm"
                         d="M67.243,66.548c-0,-0 1.719,14.307 4.037,15.069c2.318,0.762 5.637,0.726 5.194,-2.497c-0.443,-3.222 -1.738,-5.012 -1.847,-6.656c-0.109,-1.644 0.081,-10.667 -0.31,-11.642"
                         style={{
-                            fill: "#dd8239",
+                            fill: ColorThemes[this.props.color].dog,
                             stroke: "#000",
                             strokeWidth: "1.39px",
                         }}
@@ -425,7 +455,7 @@ class DJ extends React.Component {
                         <path
                             d="M12.557,29.698c0,-0 10.445,0.022 10.212,10.157c-0.234,10.135 -8.762,9.592 -9.823,9.781c-1.061,0.188 -11.033,-0.093 -10.156,-10.284c0.876,-10.19 9.81,-9.539 9.767,-9.654Z"
                             style={{
-                                fill: "#80cbb7",
+                                fill: ColorThemes[this.props.color].disk,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
@@ -442,7 +472,7 @@ class DJ extends React.Component {
                         <path
                             d="M23.007,61.633l-10.87,-11.79c0,0 0.526,-5.003 -2.172,-4.793c-2.697,0.21 -3.891,3.672 -3.439,5.451c0.452,1.78 12.004,15.547 14.462,16.811"
                             style={{
-                                fill: "#dd8239",
+                                fill: ColorThemes[this.props.color].dog,
                                 stroke: "#000",
                                 strokeWidth: "1.39px",
                             }}
