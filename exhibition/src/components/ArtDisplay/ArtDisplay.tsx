@@ -10,65 +10,74 @@ import DJ from "./ArtWorks/DJ";
 import Dance from "./ArtWorks/Dance";
 import CrackDown from "./ArtWorks/CrackDown";
 import BestBuddies from "./ArtWorks/BestBuddies";
+import WebContext, { WebContextInterface } from "../../WebContext";
 
-interface IProps {}
+const artWorks = [
+    <BestBuddies />,
+    <CrackDown />,
+    <Dance />,
+    <DJ />,
+    <Dogs />,
+    <Earth />,
+    <Football />,
+    <Heart />,
+    <RadiantBaby />,
+    <Snake />,
+];
 
-interface IState {
-    currentIndex: number;
-    artworks: Array<any>;
-}
+const ArtDisplay: React.FunctionComponent = () => {
+    const values: WebContextInterface = React.useContext(WebContext);
 
-class ArtDisplay extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-        this.state = {
-            currentIndex: 0,
-            artworks: [
-                <BestBuddies />,
-                <CrackDown />,
-                <Dance />,
-                <DJ />,
-                <Dogs />,
-                <Earth />,
-                <Football />,
-                <Heart />,
-                <RadiantBaby />,
-                <Snake />,
-            ],
-        };
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
-    }
-
-    next() {
-        if (this.state.currentIndex === this.state.artworks.length - 1) {
-            this.setState({ currentIndex: 0 });
-        } else {
-            const newCurrentIndex = this.state.currentIndex + 1;
-            this.setState({ currentIndex: newCurrentIndex });
-        }
-    }
-
-    previous() {
-        if (this.state.currentIndex === 0) {
-            this.setState({ currentIndex: this.state.artworks.length - 1 });
-        } else {
-            const newCurrentIndex = this.state.currentIndex - 1;
-            this.setState({ currentIndex: newCurrentIndex });
-        }
-    }
-
-    render() {
-        return (
-            <div id="artContainer">
-                {this.state.artworks[this.state.currentIndex]}
-                <div id="buttons">
-                    <button onClick={this.previous}>Previous</button>
-                    <button onClick={this.next}>Next</button>
-                </div>
-            </div>
+    function saveValues(index: number) {
+        window.sessionStorage.setItem(
+            "artwork" + index,
+            JSON.stringify(values)
         );
     }
-}
+
+    function loadValues(index: number) {
+        let valueString = window.sessionStorage.getItem("artwork" + index);
+        if (valueString !== null) {
+            let parsedValues = JSON.parse(valueString);
+            values.updateColor(parsedValues.color);
+            values.updateSound(parsedValues.sound);
+            values.updatePoetry(parsedValues.poetry);
+        }
+    }
+
+    function next() {
+        saveValues(values.index);
+        if (values.index === artWorks.length - 1) {
+            values.updateIndex(0);
+            loadValues(0);
+        } else {
+            const newIndex = values.index + 1;
+            values.updateIndex(newIndex);
+            loadValues(newIndex);
+        }
+    }
+
+    function previous() {
+        saveValues(values.index);
+        if (values.index === 0) {
+            values.updateIndex(artWorks.length - 1);
+            loadValues(artWorks.length - 1);
+        } else {
+            const newIndex = values.index - 1;
+            values.updateIndex(newIndex);
+            loadValues(newIndex);
+        }
+    }
+
+    return (
+        <div id="artContainer">
+            {artWorks[values.index]}
+            <div id="buttons">
+                <button onClick={previous}>Previous</button>
+                <button onClick={next}>Next</button>
+            </div>
+        </div>
+    );
+};
 
 export default ArtDisplay;

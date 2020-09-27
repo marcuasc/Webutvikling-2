@@ -1,13 +1,25 @@
-import React, { createContext, useState } from "react";
+import * as React from "react";
 
-export const WebContext = createContext(undefined);
+export interface WebContextInterface {
+    sound: number;
+    color: number;
+    poetry: number;
+    index: number;
+    updateSound(value: number): void;
+    updateColor(value: number): void;
+    updatePoetry(value: number): void;
+    updateIndex(value: number): void;
+}
 
-export const WebProvider = () => {
-  const [states, setStates] = useState({
-    sound: 1,
-    color: 1,
-    poetry: 1,
-  });
-};
+const WebContext: React.Context<WebContextInterface> = React.createContext({
+    sound: 0,
+    color: 0,
+    poetry: 0,
+    index: 0,
+    updateSound: (value) => {},
+    updateColor: (value) => {},
+    updatePoetry: (value) => {},
+    updateIndex: (value) => {},
+});
 
 export default WebContext;

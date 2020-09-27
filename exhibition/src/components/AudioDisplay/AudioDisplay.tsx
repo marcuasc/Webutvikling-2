@@ -1,4 +1,5 @@
 import React from "react";
+import WebContext, { WebContextInterface } from "../../WebContext";
 import "./AudioDisplay.css";
 
 let input = [
@@ -7,29 +8,32 @@ let input = [
     "./resources/AudioFiles/waterfall.mp3",
 ];
 
-interface AppState {
-    currentIndex: number;
-    audioFiles: [];
-}
+const AudioDisplay: React.FunctionComponent = () => {
+    const values: WebContextInterface = React.useContext(WebContext);
 
-interface AppProps {}
+    return (
+        <div id="audioDisplay">
+            <audio src={input[values.sound]} controls autoPlay />
+        </div>
+    );
+};
 
-class AudioDisplay extends React.Component<AppProps, AppState> {
-    constructor(props: AppProps) {
-        super(props);
-        this.state = {
-            currentIndex: 0,
-            audioFiles: [],
-        };
-    }
+// class AudioDisplay extends React.Component<AppProps, AppState> {
+//     constructor(props: AppProps) {
+//         super(props);
+//         this.state = {
+//             currentIndex: 0,
+//             audioFiles: [],
+//         };
+//     }
 
-    render() {
-        return (
-            <div id="audioDisplay">
-                <audio src={input[2]} controls autoPlay />
-            </div>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <div id="audioDisplay">
+//                 <audio src={input[2]} controls autoPlay />
+//             </div>
+//         );
+//     }
+// }
 
 export default AudioDisplay;
