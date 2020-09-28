@@ -1,6 +1,6 @@
 # Project 2
 
-https://gitpod.idi.ntnu.no/https://gitlab.stud.idi.ntnu.no/it2810-h20/team-59/project-2.git
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.idi.ntnu.no/#https://gitlab.stud.idi.ntnu.no/it2810-h20/team-59/project-2) 
 
 ## Table of contents
 * [Motivation](#motivation)
