@@ -46,19 +46,19 @@ The component PoetryDisplay is responsible for handling the poems. It is a funct
 
 We use AJAX to dynamically fetch poems from poetryDB. By dynamically fetching the poems, we can update the poem without re-rendering the whole website.
 
-The component PoetryDisplay fetches the chosen poem with `useEffect` to ensure that the poem is retrieved after the component gets rendered and when the poetry value in the context is updated.
+The component PoetryDisplay fetches the chosen poem with `useEffect` to ensure that the poem is retrieved after the component gets rendered and when the poetry or index value in the context is updated.
 
-The fetch method returns a JSON-object with separation between all the lines of the poem. The method `getText()` appends the lines into an empty string one at a time, thus creating a single string containing the whole poem. 
-The string then gets returned and rendered as a single `<p>` element.
+The fetch method returns a JSON-object with a lot of information about the poem. The necessary information is set in the data state.
+In the return function, the necessary information is put in a `<p>` element.
 
-The adresses for the different poems used in this project are stored locally in a list called `input`. 
-PoetryDisplay picks a poem from the list to display by using the context variable poetry. This is controlled by one of the sliders in ControlDisplay.
+The adresses for the different poems used in this project are stored locally in a list called `poems`. 
+PoetryDisplay picks a poem from the list to display by using the context variable poetry and index. This is controlled by two of the sliders in ControlDisplay.
 
 ## Audio
 
-The component AudioDisplay uses the HTML audio-tag to render audio and controls. We have three audio-files, one for each of the themes selected by the controller component.
+The component AudioDisplay uses the HTML audio-tag to render audio and controls. We have three audio-files per artwork, one for each of the themes selected by the controller component.
 
-All the audio-files are stored in the projects `Public` folder, and the different paths are stored locally in a list in AudioDisplay. The component picks the index of the list corresponding to the chosen sound theme of the user.
+All the audio-files are stored in the projects `Public` folder, and the different paths are stored locally in a list in AudioDisplay. The component picks the index of the list corresponding to the chosen sound theme of the user and current index of artwork.
 
 All the files are from [SoundBible](http://soundbible.com/tags-mp3.html) and are royalty free.
 
@@ -96,6 +96,3 @@ Sessionstorage is used to store the poem, audio and color-palette of each artwor
 We have added a snapshot test for `PoetryDisplay`, `AudioDisplay` and `ArtworkDisplay`. A snapshot of what the components renders have been stored in the project, and the tests compares the rendered components to that of the snapshot. Any changes will give a failed test.
 
 The project is responsive, and works well on all devices and screen-sizes. We have manually tested on a windows machine with various window-sizes (chrome), a macbook with various window-sizes (chrome) and on an iPhone (safari). All components renders correctly and has the wanted layout.
-
-
-
