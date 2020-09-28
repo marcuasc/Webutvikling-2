@@ -9,7 +9,8 @@ let input = [
     "https://poetrydb.org/title/Dying at my music!/lines.json",
 ];
 
-const PoetryDisplay: React.FunctionComponent = () => {
+
+/*const PoetryDisplay: React.FunctionComponent = () => {
     const values: WebContextInterface = React.useContext(WebContext);
     let [data, setData] = React.useState([]);
 
@@ -39,49 +40,50 @@ const PoetryDisplay: React.FunctionComponent = () => {
             <p>{getText()}</p>
         </div>
     );
-};
+};*/
 
-// interface PoetryDisplayProps {
-// }
+ interface PoetryDisplayProps {
+}
 
-// interface PoetryDisplayState {
-//     data: Array<any>;
-// }
+ interface PoetryDisplayState {
+     data: Array<any>;
+ }
 
-// class PoetryDisplay extends React.Component<
-//     PoetryDisplayProps,
-//     PoetryDisplayState
-// > {
-//     constructor(props: PoetryDisplayProps) {
-//         super(props);
-//         this.state = {
-//             data: [],
-//         };
-//     }
+ class PoetryDisplay extends React.Component<
+     PoetryDisplayProps,
+     PoetryDisplayState
+ > {
+    constructor(props: PoetryDisplayProps) {
+         super(props);
+         this.state = {
+             data: [],
+         };
+     }
 
-//     componentDidMount(): void {
-//         fetch(input[1])
-//             .then((response) => response.json())
-//             .then((poem) => {
-//                 this.setState({ data: poem[0].lines });
-//             });
-//     }
+     componentDidMount(): void {
+         fetch(input[2])
+             .then((response) => response.json())
+             .then((poem) => {
+                 this.setState({ data: poem[0].lines });
+                 console.log(poem[0].lines);
+             });
+     }
 
-//     getText() {
-//         let text = "";
-//         for (let e in this.state.data) {
-//             text += this.state.data[e] + " ";
-//         }
-//         return text;
-//     }
+     getText() {
+         let text = "";
+         for (let e in this.state.data) {
+             text += this.state.data[e] + " ";
+         }
+         return text;
+     }
 
-//     render() {
-//         return (
-//             <div>
-//                 <p>{this.getText()}</p>
-//             </div>
-//         );
-//     }
-// }
+     render() {
+         return (
+             <div>
+                 <p>{this.getText()}</p>
+             </div>
+         );
+     }
+ }
 
 export default PoetryDisplay;
