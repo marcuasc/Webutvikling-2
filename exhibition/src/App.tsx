@@ -8,7 +8,9 @@ import ControlDisplay from "./components/ControlDisplay/ControlDisplay";
 import WebContext, { WebContextInterface } from "./WebContext";
 
 function App() {
+    // Declares vars for color, sound, poetry and index
     let st, ct, pt, it: number;
+    // Checks if they exist in local storage. If they do, set them to that value. If not, set them to 0
     if (localStorage.getItem("color") === null) {
         ct = 0;
     } else {
@@ -30,14 +32,14 @@ function App() {
         it = parseInt(localStorage.getItem("index") as string);
     }
 
+    // Sets the vars as global state vars and methods to update them
     const [sound, setSound] = React.useState(st);
     const [color, setColor] = React.useState(ct);
     const [poetry, setPoetry] = React.useState(pt);
     const [index, setIndex] = React.useState(it);
 
-    const values: WebContextInterface = React.useContext(WebContext);
-
     return (
+        // Sends the values as global state vars and the methods to update them
         <WebContext.Provider
             value={{
                 sound: sound,

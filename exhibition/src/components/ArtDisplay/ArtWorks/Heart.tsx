@@ -7,6 +7,9 @@ interface HeartProps {
     color: number;
 }
 
+// Gets number as prop for selection of color
+// Declares color themes for the different elements in the SVG
+
 const ColorThemes = [
     {
         background: "#244E9A",
@@ -31,10 +34,12 @@ class Heart extends React.Component<HeartProps> {
         addPlugin(waapiPlugin);
     }
 
+    // Starts the animation when it mounts
     componentDidMount() {
         this.animate();
     }
 
+    // Function for animating elements in the svg element. Sets transformationOrigin, duration, delays and animations. Loops infinitely
     animate() {
         const heartAnimation = sequence([
             {

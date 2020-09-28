@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { updateDefaultClause } from "typescript";
 import WebContext, { WebContextInterface } from "../../WebContext";
 import "./PoetryDisplay.css";
 
+// Defines the list of poems
 let input = [
     "https://poetrydb.org/title/A Fragment: To Music/lines.json",
     "https://poetrydb.org/title/Fragment: 'The Death Knell Is Ringing'/lines.json",
@@ -10,22 +10,24 @@ let input = [
 ];
 
 const PoetryDisplay: React.FunctionComponent = () => {
+    // Import the context values
     const values: WebContextInterface = React.useContext(WebContext);
-    let [data, setData] = React.useState([]);
+    // Declares data as a list of strings in the components state
+    let [data, setData] = React.useState([""]);
 
+    // useEffect triggers when the component loads and when values.poetry updates.
     useEffect(() => {
-        updateData();
-    }, []);
-
-    function updateData() {
-        console.log(values.poetry);
+        // sets data to loading
+        setData(["Loading poem..."]);
+        // fetches from poetryDB on the current poetry value
         fetch(input[values.poetry])
             .then((response) => response.json())
             .then((poem) => {
                 setData(poem[0].lines);
             });
-    }
+    }, [values.poetry]);
 
+    // gets the text from data and puts it in a string and returns it
     function getText() {
         let text = "";
         for (let e in data) {
@@ -39,49 +41,6 @@ const PoetryDisplay: React.FunctionComponent = () => {
             <p>{getText()}</p>
         </div>
     );
-};
-
-// interface PoetryDisplayProps {
-// }
-
-// interface PoetryDisplayState {
-//     data: Array<any>;
-// }
-
-// class PoetryDisplay extends React.Component<
-//     PoetryDisplayProps,
-//     PoetryDisplayState
-// > {
-//     constructor(props: PoetryDisplayProps) {
-//         super(props);
-//         this.state = {
-//             data: [],
-//         };
-//     }
-
-//     componentDidMount(): void {
-//         fetch(input[1])
-//             .then((response) => response.json())
-//             .then((poem) => {
-//                 this.setState({ data: poem[0].lines });
-//             });
-//     }
-
-//     getText() {
-//         let text = "";
-//         for (let e in this.state.data) {
-//             text += this.state.data[e] + " ";
-//         }
-//         return text;
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 <p>{this.getText()}</p>
-//             </div>
-//         );
-//     }
-// }
+};*/
 
 export default PoetryDisplay;

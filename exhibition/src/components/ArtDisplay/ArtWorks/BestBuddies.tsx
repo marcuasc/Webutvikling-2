@@ -7,6 +7,9 @@ interface BestBuddiesProps {
     color: number;
 }
 
+// Gets number as prop for selection of color
+// Declares color themes for the different elements in the SVG
+
 const ColorThemes = [
     {
         background: "#8CCCD5",
@@ -34,6 +37,7 @@ class BestBuddies extends React.Component<BestBuddiesProps> {
         addPlugin(waapiPlugin);
     }
 
+    // Function for animating elements in the svg element. Sets transformationOrigin, duration, delays and animations. Loops infinitely
     animate() {
         const yellowArmAnimation = sequence([
             {
@@ -134,6 +138,7 @@ class BestBuddies extends React.Component<BestBuddiesProps> {
         });
     }
 
+    // Starts the animation when it mounts
     componentDidMount() {
         this.animate();
     }
