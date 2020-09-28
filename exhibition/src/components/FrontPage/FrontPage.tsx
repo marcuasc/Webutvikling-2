@@ -29,8 +29,13 @@ class FrontPage extends React.Component<FrontPageProps, FrontPageState> {
         return (
             <div id="frontPage" className={this.state.class}>
                 <div id="container">
-                    <img src="https://dazedimg-dazedgroup.netdna-ssl.com/1600/azure/dazed-prod/1260/8/1268443.jpg" />
-                    <div>
+                    <div id="imgContainer">
+                        <img
+                            src="https://dazedimg-dazedgroup.netdna-ssl.com/1600/azure/dazed-prod/1260/8/1268443.jpg"
+                            alt="Portrat of Keith Haring"
+                        />
+                    </div>
+                    <div id="textContainer">
                         <p id="introText">
                             <span>Keith Allen Haring </span>
                             was an American artist whose pop art and
@@ -40,6 +45,7 @@ class FrontPage extends React.Component<FrontPageProps, FrontPageState> {
                             animated them.
                         </p>
                         <Button
+                            margin={false}
                             function={this.hide}
                             text={"Start exhibition"}
                         />

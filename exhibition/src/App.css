@@ -10,6 +10,7 @@
 #Main {
     width: 70%;
     background-color: rgb(211, 198, 179);
+    border: 10px solid black;
     border-radius: 30px;
     padding: 30px;
     display: flex;

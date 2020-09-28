@@ -15,7 +15,7 @@ const AudioDisplay: React.FunctionComponent = () => {
     // Renders audio based on the value of the sound context
     return (
         <div id="audioDisplay">
-            <audio src={input[values.sound]} controls autoPlay />
+            <audio src={input[values.sound]} controls autoPlay muted />
         </div>
     );
 };

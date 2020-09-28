@@ -5,7 +5,7 @@ import PoetryDisplay from "./components/PoetryDisplay/PoetryDisplay";
 import AudioDisplay from "./components/AudioDisplay/AudioDisplay";
 import FrontPage from "./components/FrontPage/FrontPage";
 import ControlDisplay from "./components/ControlDisplay/ControlDisplay";
-import WebContext, { WebContextInterface } from "./WebContext";
+import WebContext from "./WebContext";
 
 function App() {
     // Declares vars for color, sound, poetry and index

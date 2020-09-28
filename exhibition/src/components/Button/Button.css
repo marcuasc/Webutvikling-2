@@ -1,5 +1,4 @@
 .button {
-    margin: 10px;
     padding: 10px 20px;
     border-radius: 5px;
     border-width: 0 0 3px 0;
@@ -9,4 +8,12 @@
 
 .button:active {
     border-width: 0 0 1px 0;
+}
+
+.withMargin {
+    margin: 10px;
+}
+
+.withoutMargin {
+    margin: 0;
 }
