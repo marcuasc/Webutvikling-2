@@ -25,7 +25,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
         id="bg"
         style={
           Object {
-            "fill": "#8cccd5",
+            "fill": "#8CCCD5",
           }
         }
         width="100"
@@ -39,7 +39,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           height="20"
           style={
             Object {
-              "fill": "#b7bbd6",
+              "fill": "#B7BBD6",
               "stroke": "#000",
               "strokeWidth": "2.78px",
             }
@@ -771,7 +771,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           id="yellowBg"
           style={
             Object {
-              "fill": "#fcbb3d",
+              "fill": "#FCBB3D",
             }
           }
         />
@@ -834,7 +834,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           id="redBg2"
           style={
             Object {
-              "fill": "#ee693c",
+              "fill": "#EE693C",
             }
           }
         />
@@ -843,7 +843,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           id="redBg"
           style={
             Object {
-              "fill": "#ee693c",
+              "fill": "#EE693C",
             }
           }
         />
@@ -922,7 +922,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           id="redArm"
           style={
             Object {
-              "fill": "#ee693c",
+              "fill": "#EE693C",
               "stroke": "#000",
               "strokeWidth": "2.78px",
             }
@@ -937,7 +937,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           id="yellowArm"
           style={
             Object {
-              "fill": "#fcbb3d",
+              "fill": "#FCBB3D",
               "stroke": "#000",
               "strokeWidth": "2.78px",
             }
@@ -947,7 +947,7 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
           d="M80.695,42.529l3.278,1.368c0,0 -1.157,7.482 3.794,6.987c4.95,-0.494 5.542,-4.647 5.467,-5.492c-0.076,-0.845 2.012,-5.544 -12.855,-7.958c0.403,1.958 0.404,2.189 0.316,5.095Z"
           style={
             Object {
-              "fill": "#fcbb3d",
+              "fill": "#FCBB3D",
             }
           }
         />
@@ -1144,14 +1144,16 @@ exports[`Testing ArtDisplay Matches ArtDisplay 1`] = `
     </g>
   </svg>
   <div
-    id="buttons"
+    id="buttonsContainer"
   >
     <button
+      className="withMargin button"
       onClick={[Function]}
     >
       Previous
     </button>
     <button
+      className="withMargin button"
       onClick={[Function]}
     >
       Next
@@ -1167,15 +1169,26 @@ exports[`Testing AudioDisplay Matches AudioDisplay 1`] = `
   <audio
     autoPlay={true}
     controls={true}
-    src="./resources/AudioFiles/waterfall.mp3"
+    muted={true}
+    src="./resources/AudioFiles/laugh.mp3"
   />
 </div>
 `;
 
 exports[`Testing PoetryDisplay Matches PoetryDisplay 1`] = `
-<div>
-  <p>
+<p>
+  <span
+    className="bold"
+  >
     
-  </p>
-</div>
+  </span>
+  <br />
+  <span
+    className="cursive"
+  >
+    
+  </span>
+  <br />
+  
+</p>
 `;
