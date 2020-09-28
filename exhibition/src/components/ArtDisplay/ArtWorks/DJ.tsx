@@ -7,6 +7,9 @@ interface DJProps {
     color: number;
 }
 
+// Gets number as prop for selection of color
+// Declares color themes for the different elements in the SVG
+
 const ColorThemes = [
     {
         background: "#DFD35B",
@@ -37,10 +40,12 @@ class DJ extends React.Component<DJProps> {
         addPlugin(waapiPlugin);
     }
 
+    // Starts the animation when it mounts
     componentDidMount() {
         this.animate();
     }
 
+    // Function for animating elements in the svg element. Sets transformationOrigin, duration, delays and animations. Loops infinitely
     animate() {
         const leftArmAnimation = sequence([
             {

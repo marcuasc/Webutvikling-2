@@ -7,6 +7,9 @@ interface EarthProps {
     color: number;
 }
 
+// Gets number as prop for selection of color
+// Declares color themes for the different elements in the SVG
+
 const ColorThemes = [
     {
         background: "#C75C26",
@@ -34,6 +37,7 @@ class Earth extends React.Component<EarthProps> {
         addPlugin(waapiPlugin);
     }
 
+    // Function for animating elements in the svg element. Sets transformationOrigin, duration, delays and animations. Loops infinitely
     animate() {
         const earthAnimation = sequence([
             {
@@ -148,6 +152,7 @@ class Earth extends React.Component<EarthProps> {
         });
     }
 
+    // Starts the animation when it mounts
     componentDidMount() {
         this.animate();
     }

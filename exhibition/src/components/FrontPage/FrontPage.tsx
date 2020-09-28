@@ -1,21 +1,25 @@
 import React from "react";
 import "./FrontPage.css";
 
-interface IProps {}
+// Interfaces so that TypeScript remains happy
+interface FrontPageProps {}
 
-interface IState {
+interface FrontPageState {
     class: string;
 }
 
-class FrontPage extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class FrontPage extends React.Component<FrontPageProps, FrontPageState> {
+    constructor(props: FrontPageProps) {
         super(props);
+        // Sets initial state to showing
         this.state = {
             class: "showing",
         };
+        // Binds hide function to this object
         this.hide = this.hide.bind(this);
     }
 
+    // Sets the state to hiding so display is set to none (see FrontPage.css)
     hide() {
         this.setState({ class: "hiding" });
     }
