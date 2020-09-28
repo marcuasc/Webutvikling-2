@@ -1,3 +1,13 @@
 div {
     color: black;
 }
+
+.bold {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.cursive {
+    font-style: italic;
+    font-size: 1.2em;
+}
