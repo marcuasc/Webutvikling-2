@@ -66,7 +66,7 @@ const ControlDisplay: React.FunctionComponent = () => {
     return (
         <div id="controlContainer">
             <div id="ColorTheme" className="sliderContainer">
-                <p>ColorTheme</p>
+                <p>Choose color</p>
                 <input
                     id="ctSlider"
                     className="slider"
@@ -78,14 +78,14 @@ const ControlDisplay: React.FunctionComponent = () => {
                     onChange={handleChange1}
                 />
                 <ul>
-                    <li>0</li>
                     <li>1</li>
                     <li>2</li>
+                    <li>3</li>
                 </ul>
             </div>
 
             <div id="SoundTheme" className="sliderContainer">
-                <p>SoundTheme</p>
+                <p>Choose sound</p>
                 <input
                     className="slider"
                     type="range"
@@ -96,14 +96,14 @@ const ControlDisplay: React.FunctionComponent = () => {
                     onChange={handleChange2}
                 />
                 <ul>
-                    <li>0</li>
                     <li>1</li>
                     <li>2</li>
+                    <li>3</li>
                 </ul>
             </div>
 
             <div id="PoetryTheme" className="sliderContainer">
-                <p>PoetryTheme</p>
+                <p>Choose poem</p>
                 <input
                     className="slider"
                     type="range"
@@ -114,14 +114,14 @@ const ControlDisplay: React.FunctionComponent = () => {
                     onChange={handleChange3}
                 />
                 <ul>
-                    <li>0</li>
                     <li>1</li>
                     <li>2</li>
+                    <li>3</li>
                 </ul>
             </div>
             <div id="favButtons">
-                <Button function={saveFav} text="Legg til som favoritt" />
-                <Button function={loadFav} text="Last inn favoritt" />
+                <Button function={saveFav} text="Add favourite" />
+                <Button function={loadFav} text="Load favourite" />
             </div>
         </div>
     );

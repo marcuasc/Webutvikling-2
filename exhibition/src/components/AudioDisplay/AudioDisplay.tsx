@@ -3,7 +3,7 @@ import WebContext, { WebContextInterface } from "../../WebContext";
 import "./AudioDisplay.css";
 
 // Links to the different mp3-files used in the project
-let input = [
+let poems = [
     // BestBuddies
     [
         "./resources/AudioFiles/laugh.mp3",
@@ -73,7 +73,7 @@ const AudioDisplay: React.FunctionComponent = () => {
     return (
         <div id="audioDisplay">
             <audio
-                src={input[values.index][values.sound]}
+                src={poems[values.index][values.sound]}
                 controls
                 autoPlay
                 muted
