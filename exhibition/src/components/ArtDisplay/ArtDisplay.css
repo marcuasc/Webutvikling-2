@@ -4,14 +4,11 @@
     margin: 0;
 }
 
-#buttons {
-    display: flex;
-    justify-content: space-around;
+#artContainer svg {
+    border: 10px solid black;
 }
 
-#buttons > button {
-    width: 90px;
-    padding: 10px;
-    border-radius: 50px;
-    margin-top: 10px;
+#buttonsContainer {
+    display: flex;
+    justify-content: space-around;
 }

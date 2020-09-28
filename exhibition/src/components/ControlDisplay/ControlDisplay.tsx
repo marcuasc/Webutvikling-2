@@ -1,5 +1,6 @@
 import React from "react";
 import WebContext, { WebContextInterface } from "../../WebContext";
+import Button from "../Button/Button";
 import "./ControlDisplay.css";
 
 const ControlDisplay: React.FunctionComponent = () => {
@@ -118,13 +119,9 @@ const ControlDisplay: React.FunctionComponent = () => {
                     <li>2</li>
                 </ul>
             </div>
-            <div>
-                <button className="btns" onClick={saveFav}>
-                    Legg til som favoritt
-                </button>
-                <button className="btns" onClick={loadFav}>
-                    Last inn favoritt
-                </button>
+            <div id="favButtons">
+                <Button function={saveFav} text="Legg til som favoritt" />
+                <Button function={loadFav} text="Last inn favoritt" />
             </div>
         </div>
     );

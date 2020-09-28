@@ -5,30 +5,31 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
 }
 
 #Main {
-    margin: 10% 0;
     width: 70%;
-    background-color: antiquewhite;
+    background-color: rgb(211, 198, 179);
+    border: 10px solid black;
     border-radius: 30px;
     padding: 30px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 30px;
-    min-width: 300px;
+    min-width: 250px;
 }
 
 #artworks {
-    max-width: 300px;
+    width: 100%;
+    max-width: 40%;
+    min-width: 250px;
     margin: 0 auto;
 }
 
 #controls {
     flex: 2;
-    min-width: 300px;
+    min-width: 250px;
 }
 
 #poetry {
