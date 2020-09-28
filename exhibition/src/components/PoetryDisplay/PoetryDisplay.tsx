@@ -41,6 +41,6 @@ const PoetryDisplay: React.FunctionComponent = () => {
             <p>{getText()}</p>
         </div>
     );
-};
+};*/
 
 export default PoetryDisplay;

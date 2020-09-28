@@ -13,8 +13,10 @@ import BestBuddies from "./ArtWorks/BestBuddies";
 import WebContext, { WebContextInterface } from "../../WebContext";
 
 const ArtDisplay: React.FunctionComponent = () => {
+    // Gets the values from the context
     const values: WebContextInterface = React.useContext(WebContext);
 
+    // Sets artworks to a list with all the artworks. Sends the context value for color as a prop
     const artWorks = [
         <BestBuddies color={values.color} />,
         <CrackDown color={values.color} />,
@@ -28,6 +30,7 @@ const ArtDisplay: React.FunctionComponent = () => {
         <Snake color={values.color} />,
     ];
 
+    // Helping function to save the current values to session storage for each artwork
     function saveValues(index: number) {
         window.sessionStorage.setItem(
             "artwork" + index,
@@ -35,6 +38,7 @@ const ArtDisplay: React.FunctionComponent = () => {
         );
     }
 
+    // Helping function to load the values for the current artwork if they exist.
     function loadValues(index: number) {
         let valueString = window.sessionStorage.getItem("artwork" + index);
         if (valueString !== null) {
@@ -45,6 +49,7 @@ const ArtDisplay: React.FunctionComponent = () => {
         }
     }
 
+    // Function for updating context with the next artworks index. Saves and loads values for current and next artwork
     function next() {
         saveValues(values.index);
         if (values.index === artWorks.length - 1) {
@@ -57,6 +62,7 @@ const ArtDisplay: React.FunctionComponent = () => {
         }
     }
 
+    // Function for updating context with the previous artworks index. Saves and loads values for current and previous artwork
     function previous() {
         saveValues(values.index);
         if (values.index === 0) {
@@ -69,6 +75,7 @@ const ArtDisplay: React.FunctionComponent = () => {
         }
     }
 
+    // Renders the artwork on the current index and buttons for next and previous
     return (
         <div id="artContainer">
             {artWorks[values.index]}
