@@ -31,23 +31,33 @@ The arworks are animated and displayed with new color palettes, but the genious 
 
 ## SVG and animations
 
+The artworks were originally created by Keith Haring and redrawn by us in Affinity Designer and exported to SVG. That completed a lot of the necessary work, but some manual conversion was still needed.
+All artworks are class components to make it easier to animate and change color. 
 
+The animations have been implemented with the [just-animate](https://just-animate.github.io/) JavaScript library. The animation loops infinitely and starts automatically when the component mounts.
+
+The artworks take the color value from the context as a prop from ArtDisplay.tsx such that it automatically updates when the context updates.
+ColorThemes are specific to the artwork.
 
 
 ## Poems and AJAX
 
-We use AJAX to dynamically fetch poems from poetryDB. By dynamically fetching the poems, we can update the poem without re-rendering the whole newsite.
+The component PoetryDisplay is responsible for handling the poems. It is a functional arrow component.
 
-The component PoetryDisplay uses the fetches the chosen poem in its lifecycle-method to ensure that the poem is retrieved after the component gets rendered.
+We use AJAX to dynamically fetch poems from poetryDB. By dynamically fetching the poems, we can update the poem without re-rendering the whole website.
 
-The fetch method returns a JSON-object with separation between all the lines of the poem. The method `getText()` appends the lines into an empty string on at a time, thus creating a single string with containing the whole poem. 
+The component PoetryDisplay fetches the chosen poem with `useEffect` to ensure that the poem is retrieved after the component gets rendered and when the poetry value in the context is updated.
+
+The fetch method returns a JSON-object with separation between all the lines of the poem. The method `getText()` appends the lines into an empty string one at a time, thus creating a single string containing the whole poem. 
 The string then gets returned and rendered as a single `<p>` element.
 
 The adresses for the different poems used in this project are stored locally in a list called `input`. 
-PoetryDisplay picks a poem from the list to display by using the variable returned from on of the sliders in ControlDisplay as an index in the `input`list.
+PoetryDisplay picks a poem from the list to display by using the context variable poetry. This is controlled by one of the sliders in ControlDisplay.
 
 ## Audio
-The component AudioDisplay uses the HTML audio-tag to render audio and controlls. We have three audio-files, one for each of the themes selected by the controller component.
+
+The component AudioDisplay uses the HTML audio-tag to render audio and controls. We have three audio-files, one for each of the themes selected by the controller component.
+
 All the audio-files are stored in the projects `Public` folder, and the different paths are stored locally in a list in AudioDisplay. The component picks the index of the list corresponding to the chosen sound theme of the user.
 
 All the files are from [SoundBible](http://soundbible.com/tags-mp3.html) and are royalty free.
@@ -63,6 +73,16 @@ The use of states within each component makes the components re-render every tim
 
 ## Layout
 
+To ensure a responsive design, we have used percentages as much as we can on our components.
+
+To ensure that the spacing between components looks nice, we have used flexbox. Flexbox is used in the App component to make sure the main components fit correctly, in ControlDisplay to ensure the controls are spaced evenly in a column and on several buttons to space them evenly. It's also used on the FrontPage component for an even distribution of elements. 
+
+In addition, the flexbox in the App component has `flex-wrap: wrap;` and `min-width: 250px;` on the main components so that it will wrap in a column-like manner if the window gets too narrow. The FrontPage component uses this aswell.
+
+The controls have `flex: 2;` to give them extra space.
+
+To ensure that the artworks scale and take up the space that they need, but doesn't get to small, it has the values `width: 100%; max-width: 40%; min-width: 250px;`.
+
 ## Webstorage
 
 We have used both localstorage and sessionstorage in this project. 
@@ -75,7 +95,7 @@ Sessionstorage is used to store the poem, audio and color-palette of each artwor
 
 We have added a snapshot test for `PoetryDisplay`, `AudioDisplay` and `ArtworkDisplay`. A snapshot of what the components renders have been stored in the project, and the tests compares the rendered components to that of the snapshot. Any changes will give a failed test.
 
-The project is responsive, and works well on all devices and screen-sizes. We have manually tested on a computer with various window-sizes, and on an iPhone. All components renders correctly and has the wanted layout.
+The project is responsive, and works well on all devices and screen-sizes. We have manually tested on a windows machine with various window-sizes (chrome), a macbook with various window-sizes (chrome) and on an iPhone (safari). All components renders correctly and has the wanted layout.
 
 
 
