@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button/Button";
 import "./FrontPage.css";
 
 interface IProps {}
@@ -34,9 +35,10 @@ class FrontPage extends React.Component<IProps, IState> {
                             reacreated some of his artworks in SVG format and
                             animated them.
                         </p>
-                        <button onClick={this.hide} id="startButton">
-                            Start exhibition
-                        </button>
+                        <Button
+                            function={this.hide}
+                            text={"Start exhibition"}
+                        />
                     </div>
                 </div>
             </div>

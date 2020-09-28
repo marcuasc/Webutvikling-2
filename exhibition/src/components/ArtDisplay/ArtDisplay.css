@@ -4,14 +4,7 @@
     margin: 0;
 }
 
-#buttons {
+#buttonsContainer {
     display: flex;
     justify-content: space-around;
-}
-
-#buttons > button {
-    width: 90px;
-    padding: 10px;
-    border-radius: 50px;
-    margin-top: 10px;
 }

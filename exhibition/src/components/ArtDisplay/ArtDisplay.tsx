@@ -11,6 +11,7 @@ import Dance from "./ArtWorks/Dance";
 import CrackDown from "./ArtWorks/CrackDown";
 import BestBuddies from "./ArtWorks/BestBuddies";
 import WebContext, { WebContextInterface } from "../../WebContext";
+import Button from "../Button/Button";
 
 const ArtDisplay: React.FunctionComponent = () => {
     const values: WebContextInterface = React.useContext(WebContext);
@@ -72,9 +73,11 @@ const ArtDisplay: React.FunctionComponent = () => {
     return (
         <div id="artContainer">
             {artWorks[values.index]}
-            <div id="buttons">
-                <button onClick={previous}>Previous</button>
-                <button onClick={next}>Next</button>
+            <div id="buttonsContainer">
+                <Button function={previous} text="Previous" />
+                <Button function={next} text="Next" />
+                {/* <button onClick={previous}>Previous</button>
+                <button onClick={next}>Next</button> */}
             </div>
         </div>
     );
