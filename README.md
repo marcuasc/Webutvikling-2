@@ -1,5 +1,7 @@
 # Project 2
 
+https://gitpod.idi.ntnu.no/https://gitlab.stud.idi.ntnu.no/it2810-h20/team-59/project-2.git
+
 ## Table of contents
 * [Motivation](#motivation)
 * [Installation](#installation)
